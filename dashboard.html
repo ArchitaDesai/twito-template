@@ -1,2 +1,217 @@
-{% extends 'base.html' %}
-<p> {{request.user.email}} </p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Material Design Bootstrap</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<!--Navbar-->
+<nav class="navbar navbar-dark bg-primary">
+
+    <!-- Collapse button-->
+    <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx2">
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <div class="container">
+
+        <!--Collapse content-->
+        <div class="collapse navbar-toggleable-xs" id="collapseEx2">
+            <!--Navbar Brand-->
+            <a href="index.html" class="navbar-brand">Twito</a>
+            <!--Links-->
+            <ul class="nav navbar-nav float-lg-right">
+                <li class="nav-item">
+                    <a class="nav-link">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Logout</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.Collapse content-->
+
+    </div>
+
+</nav>
+<!--/.Navbar-->
+<!-- Start your project here-->
+
+<div class="container">
+    <div class="row margintop60">
+        <h2 class="fl">Your twitter apps</h2>
+        <div class="fr">
+            <a data-toggle="modal" data-target="#addnewapp"><button type="button" class="btn btn-primary">Add New</button></a>
+        </div>
+        <div class="clearfix"></div>
+
+        <!--Card Light-->
+        <div class="card">
+            <!--Card content-->
+            <div class="card-block">
+                <!--Title-->
+                <h4 class="card-title">App 1</h4>
+                <hr>
+                <!--Text-->
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium animi aperiam architecto consectetur dignissimos dolorum earum et, inventore libero maiores nemo nihil nostrum nulla quibusdam saepe similique tenetur velit.</p>
+                <a href="app.html" class="text-lg-right link-text"><h5>Manage <i class="fa fa-chevron-right"></i></h5></a>
+            </div>
+        </div>
+        <!--Card Light-->
+        <div class="card">
+            <!--Card content-->
+            <div class="card-block">
+                <!--Title-->
+                <h4 class="card-title">App 2</h4>
+                <hr>
+                <!--Text-->
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium animi aperiam architecto consectetur dignissimos dolorum earum et, inventore libero maiores nemo nihil nostrum nulla quibusdam saepe similique tenetur velit.</p>
+                <a href="app.html" class="text-lg-right link-text"><h5>Manage <i class="fa fa-chevron-right"></i></h5></a>
+            </div>
+        </div>
+        <!--Card Light-->
+        <div class="card">
+            <!--Card content-->
+            <div class="card-block">
+                <!--Title-->
+                <h4 class="card-title">App 3</h4>
+                <hr>
+                <!--Text-->
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium animi aperiam architecto consectetur dignissimos dolorum earum et, inventore libero maiores nemo nihil nostrum nulla quibusdam saepe similique tenetur velit.</p>
+                <a href="app.html" class="text-lg-right link-text"><h5>Manage <i class="fa fa-chevron-right"></i></h5></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Footer-->
+<footer class="page-footer blue center-on-small-only">
+
+    <!--Footer Links-->
+    <div class="container">
+        <div class="row">
+
+            <!--First column-->
+            <div class="col-md-6">
+                <h5 class="title">Footer Content</h5>
+                <p>Here you can use rows and columns here to organize your footer content.</p>
+            </div>
+            <!--/.First column-->
+
+            <!--Second column-->
+            <div class="col-md-6">
+                <h5 class="title">Links</h5>
+                <ul>
+                    <li><a href="#!">Link 1</a></li>
+                    <li><a href="#!">Link 2</a></li>
+                    <li><a href="#!">Link 3</a></li>
+                    <li><a href="#!">Link 4</a></li>
+                </ul>
+            </div>
+            <!--/.Second column-->
+        </div>
+    </div>
+    <!--/.Footer Links-->
+
+    <!--Copyright-->
+    <div class="footer-copyright">
+        <div class="container-fluid">
+            © <script type="text/javascript">document.write(new Date().getFullYear());</script> Copyright: <a href="http://www.twito.com"> Twito </a>
+
+        </div>
+    </div>
+    <!--/.Copyright-->
+
+</footer>
+<!--/.Footer-->
+
+<!-- Modal -->
+<div class="modal fade" id="addnewapp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body flex-center text-lg-center">
+                    <!--Form with header-->
+                    <div class="card">
+                        <div class="card-block">
+
+                            <!--Header-->
+                            <div class="text-xs-center">
+                                <h3>Connect your twitter app</h3>
+                                <hr class="mt-2 mb-2">
+                            </div>
+
+                            <!--Body-->
+                            <div class="md-form">
+                                <i class="fa fa-pencil prefix"></i>
+                                <input type="text" id="form1" class="form-control">
+                                <label for="form1">App name</label>
+                            </div>
+
+                            <div class="md-form">
+                                <i class="fa fa-lock prefix"></i>
+                                <input type="text" id="form2" class="form-control">
+                                <label for="form2">Consumer Key</label>
+                            </div>
+
+                            <div class="md-form">
+                                <i class="fa fa-lock prefix"></i>
+                                <input type="text" id="form4" class="form-control">
+                                <label for="form4">Consumer Secret</label>
+                            </div>
+
+                            <div class="text-xs-center">
+                                <button class="btn btn-deep-purple">Add App</button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/Form with header-->
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/tether.min.js"></script>
+
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+</body>
+</html>
