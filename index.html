@@ -1,1 +1,202 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Material Design Bootstrap</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+    <!--Navbar-->
+    <nav class="navbar navbar-dark bg-primary">
+
+        <!-- Collapse button-->
+        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx2">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <div class="container">
+
+            <!--Collapse content-->
+            <div class="collapse navbar-toggleable-xs" id="collapseEx2">
+                <!--Navbar Brand-->
+                <a href="index.html" class="navbar-brand">Twito</a>
+                <!--Links-->
+                <ul class="nav navbar-nav float-lg-right">
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" data-target="#loginsignup">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" data-target="#loginsignup">Signup</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.Collapse content-->
+
+        </div>
+
+    </nav>
+    <!--/.Navbar-->
+    <!-- Start your project here-->
+
+    <div style="height: 60vh">
+        <div class="flex-center">
+            <div class="row text-lg-center">
+                <p class="h1">Headline</p>
+                <p class="h3">Tagline</p>
+                <button type="button" class="btn btn-elegant margintop60">Call to Action</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <!--Card-->
+                <div class="card card-outline-primary text-xs-center">
+                    <!--Card content-->
+                    <div class="card-block">
+                        <!--Title-->
+                        <h4 class="card-title text-lg-center">458</h4>
+                        <hr>
+                        <!--Text-->
+                        <p class="card-text text-lg-center">Marketers using Twito</p>
+                    </div>
+                    <!--/.Card content-->
+                </div>
+                <!--/.Card-->
+            </div>
+            <div class="col-lg-4">
+                <!--Card-->
+                <div class="card card-outline-primary text-xs-center">
+                    <!--Card content-->
+                    <div class="card-block">
+                        <!--Title-->
+                        <h4 class="card-title text-lg-center">12879</h4>
+                        <hr>
+                        <!--Text-->
+                        <p class="card-text text-lg-center">Tasks performed</p>
+                    </div>
+                    <!--/.Card content-->
+                </div>
+                <!--/.Card-->
+            </div>
+            <div class="col-lg-4">
+                <!--Card-->
+                <div class="card card-outline-primary text-xs-center">
+                    <!--Card content-->
+                    <div class="card-block">
+                        <!--Title-->
+                        <h4 class="card-title text-lg-center">Lorem Ipsum</h4>
+                        <hr>
+                        <!--Text-->
+                        <p class="card-text text-lg-center">Lorem Ipsum</p>
+                    </div>
+                    <!--/.Card content-->
+                </div>
+                <!--/.Card-->
+            </div>
+        </div>
+    </div>
+    <!--Footer-->
+    <footer class="page-footer blue center-on-small-only">
+
+        <!--Footer Links-->
+        <div class="container">
+            <div class="row">
+
+                <!--First column-->
+                <div class="col-md-6">
+                    <h5 class="title">Footer Content</h5>
+                    <p>Here you can use rows and columns here to organize your footer content.</p>
+                </div>
+                <!--/.First column-->
+
+                <!--Second column-->
+                <div class="col-md-6">
+                    <h5 class="title">Links</h5>
+                    <ul>
+                        <li><a href="#!">Link 1</a></li>
+                        <li><a href="#!">Link 2</a></li>
+                        <li><a href="#!">Link 3</a></li>
+                        <li><a href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+                <!--/.Second column-->
+            </div>
+        </div>
+        <!--/.Footer Links-->
+
+        <!--Copyright-->
+        <div class="footer-copyright">
+            <div class="container-fluid">
+                © <script type="text/javascript">document.write(new Date().getFullYear());</script> Copyright: <a href="http://www.twito.com"> Twito </a>
+
+            </div>
+        </div>
+        <!--/.Copyright-->
+
+    </footer>
+    <!--/.Footer-->
+
+    <!-- Modal -->
+    <div class="modal fade" id="loginsignup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body flex-center text-lg-center">
+                    <div class="row">
+                        <div class="login-btn-container">
+                            <a href="dashboard.html"><button type="button" class="btn btn-primary">Login via Twitter</button></a>
+                        </div>
+                        <p class="margintop">OR</p>
+                        <div class="signup-btn-container">
+                            <a href="dashboard.html"><button type="button" class="btn btn-primary">Signup via Twitter</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/tether.min.js"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+.fl {
+    float: left !important;
+}
+
+.fr {
+    float: right !important;
+}
+
+.text-yellow {
+    color: #F9A825;
+}
+
+.nomargin {
+    margin: 0px !important;
+}
+
+.nomargintop {
+    margin-top: 0px !important;
+}
+
+.nomarginbottom {
+    margin-bottom: 0px !important;
+}
+
+.nomarginleft {
+    margin-left: 0px !important;
+}
+
+.nomarginright {
+    margin-right: 0px !important;
+}
+
+.nopadding {
+    padding: 0px !important;
+}
+
+.nopaddingtop {
+    padding-top: 0px !important;
+}
+
+.nopaddingbottom {
+    padding-bottom: 0px !important;
+}
+
+.nopaddingleft {
+    padding-left: 0px !important;
+}
+
+.nopaddingright {
+    padding-right: 0px !important;
+}
+
+.margin {
+    margin: 10px;
+}
+
+.margintop {
+    margin-top: 10px;
+}
+
+.margintop60 {
+    margin-top: 60px;
+}
+
+.marginbottom {
+    margin-bottom: 10px;
+}
+
+.marginbottom40 {
+    margin-bottom: 40px;
+}
+
+.marginleft {
+    margin-left: 10px;
+}
+
+.marginleft-5 {
+    margin-left: -5px;
+}
+
+.margin-right: {
+    margin-right: 10px;
+}
+
+.padding {
+    padding: 10px;
+}
+
+.paddingtop {
+    padding-top: 10px;
+}
+
+.paddingbottom {
+    padding-bottom: 10px;
+}
+
+.paddingleft {
+    padding-left: 10px;
+}
+
+.paddingright {
+    padding-right: 10px;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.text-black {
+    color: #000;
+}
+
+.text-golden {
+    color: #e2983f;
+}
+
+.text-brown {
+    color: #43250b;
+}
+
+.text-blue {
+    color: #1EACC7;
+}
+
+.img-responsive {
+    width: 100%;
+}
+
+.textbold {
+    font-weight: bold;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.noliststyle{
+    list-style: none;
+    padding: 0;
+}
+
+.nounderline{
+    text-decoration: none !important;
+}
+.modal {
+    text-align: center;
+    padding: 0!important;
+}
+
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+#loginsignup .modal-body{
+    width: 400px;
+    height: 400px;
+}
+#loginsignup .modal-header{border-bottom: 0;}
+.card-outline-primary {
+    border: 1px solid #0275d8;
+}
+#addnewapp .modal-body{width: 600px;}
+#addnewapp .card{width: 100%;}
+.md-form .prefix{right:0;}
