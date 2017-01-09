@@ -82,7 +82,7 @@
     margin-left: -5px;
 }
 
-.margin-right: {
+.margin-right {
     margin-right: 10px;
 }
 
@@ -146,32 +146,36 @@
 .nounderline{
     text-decoration: none !important;
 }
-.modal {
-    text-align: center;
-    padding: 0!important;
-}
-
-.modal:before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-    margin-right: -4px;
-}
-
-.modal-dialog {
-    display: inline-block;
-    text-align: left;
-    vertical-align: middle;
-}
-#loginsignup .modal-body{
-    width: 400px;
-    height: 400px;
-}
-#loginsignup .modal-header{border-bottom: 0;}
 .card-outline-primary {
     border: 1px solid #0275d8;
 }
-#addnewapp .modal-body{width: 600px;}
 #addnewapp .card{width: 100%;}
 .md-form .prefix{right:0;}
+.logo{height: 58px;}
+.img-responsive {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+}
+
+@media screen and (min-width: 720px){
+    .modal {
+        text-align: center;
+        padding: 0!important;
+    }
+
+    .modal:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -4px;
+    }
+
+    .modal-dialog {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+    }
+    #addnewapp .modal-body{width: 600px;}
+}
