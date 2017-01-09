@@ -157,6 +157,17 @@
     max-height: 100%;
     width: auto;
 }
+.row-centered {
+    text-align: center;
+    display: table-row;
+}
+.col-centered {
+   display: table-cell;
+   float: none;
+   vertical-align: top;
+}
+.fullwidth{width: 100%;}
+.hidden{display: none;}
 
 @media screen and (min-width: 720px){
     .modal {
