@@ -149,6 +149,25 @@
 .card-outline-primary {
     border: 1px solid #0275d8;
 }
+html {
+    height: 100%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+#wrapper {
+    min-height: 80%;
+    height: 80%;
+}
+footer{
+    clear: both;
+    position: relative;
+    margin-top: -3em;
+    padding:10px;
+    text-align:right;
+}
 #addnewapp .card{width: 100%;}
 .md-form .prefix{right:0;}
 .logo{height: 58px;}
