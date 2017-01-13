@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,19 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Material Design Bootstrap</title>
+    <title>Twito | Your Twitter on AutoPilot</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
 
     <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
+    <link href="{% static "css/mdb.min.css" %}" rel="stylesheet">
 
     <!-- Your custom styles (optional) -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
 
 </head>
 
@@ -36,15 +37,22 @@
 
         <div class="container">
 
-            <!--Collapse content-->
+          <!--Navbar Brand-->
+          <a href="/" class="navbar-brand logo"><img src="{% static "img/logo.png" %}" class="img-responsive" alt=""></a>
+
+          <!--Collapse content-->
             <div class="collapse navbar-toggleable-xs" id="collapseEx2">
-                <!--Navbar Brand-->
-                <a href="index.html" class="navbar-brand logo"><img src="img/logo.png" class="img-responsive" alt=""></a>
                 <!--Links-->
                 <ul class="nav navbar-nav float-lg-right">
-                    <li class="nav-item">
-                        <a href="dashboard.html"><button type="button" class="btn btn-info btn-rounded"><i class="fa fa-twitter left"></i> Continue with Twitter</button></a>
-                    </li>
+                  {% if request.user.is_authenticated %}
+                  <li class="nav-item">
+                      <a href="/dashboard/" class="navbar-brand logo"><button type="button" class="btn btn-info btn-rounded">Dashboard</button></a>
+                  </li>
+                  {% else %}
+                  <li class="nav-item">
+                    <a href="/accounts/twitter/login/?process=login"><button type="button" class="btn btn-info btn-rounded"><i class="fa fa-twitter left"></i> Continue with Twitter</button></a>
+                  </li>
+                  {% endif %}
                 </ul>
             </div>
             <!--/.Collapse content-->
@@ -71,7 +79,7 @@
             <div class="carousel-item active">
                 <!--Mask color-->
                 <div class="view hm-black-light">
-                    <img src="img/slider/01.jpg" class="img-responsive" alt="">
+                    <img src="{% static "img/slider/01.jpg" %}" class="img-responsive" alt="">
                     <div class="full-bg-img">
                     </div>
                 </div>
@@ -90,7 +98,7 @@
             <div class="carousel-item">
                 <!--Mask color-->
                 <div class="view hm-black-strong">
-                    <img src="img/slider/02.jpg" class="img-responsive" alt="">
+                    <img src="{% static "img/slider/02.jpg" %}" class="img-responsive" alt="">
                     <div class="full-bg-img">
                     </div>
                 </div>
@@ -109,7 +117,7 @@
             <div class="carousel-item">
                 <!--Mask color-->
                 <div class="view hm-black-slight">
-                    <img src="img/slider/03.jpg" class="img-responsive" alt="">
+                    <img src="{% static "img/slider/03.jpg" %}" class="img-responsive" alt="">
                     <div class="full-bg-img">
                     </div>
                 </div>
@@ -221,7 +229,7 @@
     <!--Copyright-->
     <div class="footer-copyright">
         <div class="container-fluid">
-            © <script type="text/javascript">document.write(new Date().getFullYear());</script> Copyright: <a href="http://www.twito.com"> Twito </a>
+            © <script type="text/javascript">document.write(new Date().getFullYear());</script> Copyright: <a href="http://twito.com"> Twito </a>
 
         </div>
     </div>
@@ -230,46 +238,18 @@
 </footer>
 <!--/.Footer-->
 
-<!-- Modal -->
-<div class="modal fade" id="loginsignup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <!--Content-->
-        <div class="modal-content">
-            <!--Header-->
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <!--Body-->
-            <div class="modal-body flex-center text-lg-center">
-                <div class="row">
-                    <div class="login-btn-container">
-                        <a href="dashboard.html"><button type="button" class="btn btn-primary">Login via Twitter</button></a>
-                    </div>
-                    <p class="margintop center-on-small-only">OR</p>
-                    <div class="signup-btn-container">
-                        <a href="dashboard.html"><button type="button" class="btn btn-primary">Signup via Twitter</button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/.Content-->
-    </div>
-</div>
-
 <!-- SCRIPTS -->
 
 <!-- JQuery -->
-<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="{% static "js/jquery-3.1.1.min.js" %}"></script>
 
 <!-- Bootstrap tooltips -->
-<script type="text/javascript" src="js/tether.min.js"></script>
+<script type="text/javascript" src="{% static "js/tether.min.js" %}"></script>
 
 <!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
 
 <!-- MDB core JavaScript -->
-<script type="text/javascript" src="js/mdb.min.js"></script>
+<script type="text/javascript" src="{% static "js/mdb.min.js" %}"></script>
 </body>
 </html>
