@@ -1,8 +1,15 @@
 $(function(){
     $('#card-1 .task-type-container a').click(function () {
         var type = $(this).data('type');
+        var trigger = $(this).data('trigger');
+        $('#'+trigger).removeClass('hidden animated').addClass('animated fadeInLeft');
         $('#card-1').removeClass('animated').addClass('animated fadeInRight');
-        $('#card-2').removeClass('hidden animated').addClass('animated fadeInLeft');
+        // $('#card-2').removeClass('hidden animated').addClass('animated fadeInLeft');
+    });
+
+    $('.custom-trigger a').click(function(){
+        var trigger = $(this).data('trigger');
+        $('#'+trigger).removeClass('hidden animated').addClass('animated fadeInLeft');
     });
 
     $('#card-2 a').click(function () {

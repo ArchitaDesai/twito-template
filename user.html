@@ -9,19 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Task Page | Twito</title>
+    <title>Task Page for {{ user.name }} | Twito</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
 
     <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
+    <link href="{% static "css/mdb.min.css" %}" rel="stylesheet">
 
     <!-- Your custom styles (optional) -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
 
 </head>
 
@@ -39,13 +39,13 @@
         <div class="container">
 
             <!--Collapse content-->
+            <!--Navbar Brand-->
+            <a href="/" class="navbar-brand logo"><img src="{% static "img/logo.png" %}" class="img-responsive" alt=""></a>
             <div class="collapse navbar-toggleable-xs" id="collapseEx2">
-                <!--Navbar Brand-->
-                <a href="index.html" class="navbar-brand logo"><img src="img/logo.png" class="img-responsive" alt=""></a>
                 <!--Links-->
                 <ul class="nav navbar-nav float-lg-right margintop">
                     <li class="nav-item">
-                        <a class="nav-link">Profile</a>
+                        <a class="nav-link">{{ user.username }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link">Logout</a>
@@ -62,18 +62,19 @@
 
     <div class="container">
         <div class="row margintop60">
-            <h2 class="fl">User 1</h2> <div class="fl paddingleft paddingtop">About</div>
+            <h2 class="fl">{{ twuser.name }}</h2> <div class="fl paddingleft paddingtop">About</div>
             <div class="fr">
                 <!--Panel-->
+                <button type="button" class="btn btn-info" onclick="location.href='/dashboard/'"><i class="fa fa-chevron-left" aria-hidden="true"></i> Dashboard</button>
                 <div class="card">
                     <div class="card-block">
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+                        <p class="card-text">Wohoa! You have saved X time by scheduling Y tasks! </p>
                     </div>
                 </div>
                 <!--/.Panel-->
             </div>
             <div class="clearfix"></div>
-            <div class="margintop marginbottom40">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad architecto beatae culpa, cum dolores fuga hic id ipsum iste itaque molestias nobis odit perferendis quia repellat tenetur, unde ut.</div>
+            <div class="margintop marginbottom40">Check out our how-to-do page to learn about scheduling tasks <a href="#">Link</a> </div>
 
             <div class="row-centered">
                 <!--First column-->
@@ -88,7 +89,7 @@
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <div class="text-lg-center task-type-container">
                                 <div class="col-md-6">
-                                    <a href="#" class="btn btn-primary fullwidth" data-type="follow">Follow</a>
+                                    <a href="#" class="btn btn-primary fullwidth" data-type="follow" data-trigger="card-follow-2">Follow</a>
                                 </div>
                                 <div class="col-md-6">
                                     <a href="#" class="btn btn-secondary fullwidth" data-type="unfollow">Unfollow</a>
@@ -126,6 +127,44 @@
                     <!--/.Card-->
                 </div>
                 <!--/.Second column-->
+
+                <!--Second column-->
+                <div class="col-md-3 col-centered hidden custom-trigger" id="card-follow-2">
+                    <!--Card-->
+                    <div class="card">
+                        <!--Card content-->
+                        <div class="card-block">
+                            <!--Title-->
+                            <h4 class="card-title">Follow Card</h4>
+                            <!--Text-->
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary" data-trigger="follow-3">Button</a>
+                        </div>
+                        <!--/.Card content-->
+
+                    </div>
+                    <!--/.Card-->
+                </div>
+                <!--/.Second column-->
+
+                <!--Third column-->
+                <div class="col-md-3 col-centered hidden" id="follow-3">
+                    <!--Card-->
+                    <div class="card">
+                        <!--Card content-->
+                        <div class="card-block">
+                            <!--Title-->
+                            <h4 class="card-title">Card 3</h4>
+                            <!--Text-->
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Button</a>
+                        </div>
+                        <!--/.Card content-->
+
+                    </div>
+                    <!--/.Card-->
+                </div>
+                <!--/.Third column-->
 
                 <!--Third column-->
                 <div class="col-md-3 col-centered hidden" id="card-3">
@@ -234,7 +273,7 @@
     <!--Copyright-->
     <div class="footer-copyright">
         <div class="container-fluid">
-            © <script type="text/javascript">document.write(new Date().getFullYear());</script> Copyright: <a href="http://www.twito.com"> Twito </a>
+            © <script type="text/javascript">document.write(new Date().getFullYear());</script> Copyright: <a href="http://twito.co"> Twito </a>
 
         </div>
     </div>
@@ -246,16 +285,16 @@
 <!-- SCRIPTS -->
 
 <!-- JQuery -->
-<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="{% static "js/jquery-3.1.1.min.js" %}"></script>
 
 <!-- Bootstrap tooltips -->
-<script type="text/javascript" src="js/tether.min.js"></script>
+<script type="text/javascript" src="{% static "js/tether.min.js" %}"></script>
 
 <!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{% static "js/bootstrap.min.js"%}"></script>
 
 <!-- MDB core JavaScript -->
-<script type="text/javascript" src="js/mdb.min.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="{% static "js/mdb.min.js"%}"></script>
+<script type="text/javascript" src="{% static "js/script.js" %}"></script>
 </body>
 </html>
