@@ -1,30 +1,20 @@
+var curr_step,max_step=4;
 $(function(){
-    $('#card-1 .task-type-container a').click(function () {
+    $('a[data-type]').click(function () {
         var type = $(this).data('type');
-        var trigger = $(this).data('trigger');
-        $('#'+trigger).removeClass('hidden animated').addClass('animated fadeInLeft');
-        $('#card-1').removeClass('animated').addClass('animated fadeInRight');
-        // $('#card-2').removeClass('hidden animated').addClass('animated fadeInLeft');
-    });
-
-    $('.custom-trigger a').click(function(){
-        var trigger = $(this).data('trigger');
-        $('#'+trigger).removeClass('hidden animated').addClass('animated fadeInLeft');
-    });
-
-    $('#card-2 a').click(function () {
-        var type = $(this).data('type');
-        $('#card-1 .task-type-container > div').removeClass('col-md-6');
-        $('#card-1').removeClass('animated').addClass('animated fadeInRight');
-        $('#card-2').removeClass('animated').addClass('animated fadeInRight');
-        $('#card-3').removeClass('hidden animated').addClass('animated fadeInLeft');
-    });
-
-    $('#card-3 a').click(function () {
-        var type = $(this).data('type');
-        $('#card-1').removeClass('animated').addClass('animated fadeInRight');
-        $('#card-2').removeClass('animated').addClass('animated fadeInRight');
-        $('#card-3').removeClass('animated').addClass('animated fadeInRight');
-        $('#card-4').removeClass('hidden animated').addClass('animated fadeInLeft');
+        var step = $(this).parents('.card-container').data('step');
+        $(this).parents('.card-container').removeClass('animated').addClass('animated fadeInLeft');
+        if(step==curr_step){
+            $('div[data-step="'+(curr_step+1)+'"]').addClass('hidden');
+            $('.form').trigger('reset').find('label').removeClass('active');
+        }
+        if(step<curr_step){
+            for(var i=step;i<max_step;i++){
+                $('div[data-step="'+(i+1)+'"]').addClass('hidden');
+            }
+            $('.form').trigger('reset').find('label').removeClass('active');
+        }
+        $("div[data-parent='"+type+"']").removeClass('hidden animated').addClass('animated fadeInLeft');
+        curr_step=step;
     });
 });

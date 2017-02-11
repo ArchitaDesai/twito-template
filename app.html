@@ -79,7 +79,7 @@
                     <img src="{{ user.profile_pic_url }}" style="width:100px"alt="Contact Person">
                     <h4 class="card-title fl"><img></i>{{ user.name }}</h4>
                     <a href="/dashboard/app/{{ app.id }}/{{ user.id }}/delete/" class="btn btn-danger"><i class="fa fa-trash-o left"></i>Delete</a>
-                    <a href="{{ user.screen_name }}/task/" class="text-lg-right link-text fr"><h5>Manage <i class="fa fa-chevron-right"></i></h5></a>
+                    <a href="{{ user.screen_name }}/" class="text-lg-right link-text fr"><h5>Manage <i class="fa fa-chevron-right"></i></h5></a>
                 </div>
             </div>
             {% endfor %}

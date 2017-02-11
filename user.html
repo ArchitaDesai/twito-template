@@ -62,6 +62,7 @@
 
     <div class="container">
         <div class="row margintop60">
+
             <h2 class="fl">{{ twuser.name }}</h2> <div class="fl paddingleft paddingtop">About</div>
             <div class="fr">
                 <!--Panel-->
@@ -73,136 +74,241 @@
                 </div>
                 <!--/.Panel-->
             </div>
+
             <div class="clearfix"></div>
+
             <div class="margintop marginbottom40">Check out our how-to-do page to learn about scheduling tasks <a href="#">Link</a> </div>
 
             <div class="row-centered">
-                <!--First column-->
-                <div class="col-md-3 col-centered" id="card-1">
-                    <!--Card-->
-                    <div class="card">
-                        <!--Card content-->
-                        <div class="card-block">
-                            <!--Title-->
-                            <h4 class="card-title">Card title</h4>
-                            <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <div class="text-lg-center task-type-container">
-                                <div class="col-md-6">
-                                    <a href="#" class="btn btn-primary fullwidth" data-type="follow" data-trigger="card-follow-2">Follow</a>
-                                </div>
-                                <div class="col-md-6">
-                                    <a href="#" class="btn btn-secondary fullwidth" data-type="unfollow">Unfollow</a>
-                                </div>
-                                <div class="col-md-6">
-                                    <a href="#" class="btn btn-default fullwidth" data-type="favorite">Favorite</a>
-                                </div>
-                                <div class="col-md-6">
-                                    <a href="#" class="btn btn-info fullwidth" data-type="retweet">Retweet</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/.Card content-->
 
-                    </div>
-                    <!--/.Card-->
-                </div>
-                <!--/.First column-->
+              <div class="col-md-3 col-centered card-container" data-step="1">
+                   <!--Card-->
+                   <!--Level-1------->
+                   <div class="card">
+                       <!--Card content-->
+                       <div class="card-block">
+                           <!--Title-->
+                           <h4 class="card-title">Select Action</h4>
+                           <!--Text-->
+                           <p class="card-text">Select an Action that you want to schedule.</p>
+                           <div class="text-lg-center task-type-container">
+                               <div class="col-md-6">
+                                   <a class="btn btn-primary fullwidth" data-type="follow">Follow</a>
+                               </div>
+                               <div class="col-md-6">
+                                   <a class="btn btn-secondary fullwidth" data-type="unfollow">Unfollow</a>
+                               </div>
+                               <div class="col-md-6">
+                                   <a class="btn btn-default fullwidth" data-type="favorite">Favorite</a>
+                               </div>
+                               <div class="col-md-6">
+                                   <a class="btn btn-info fullwidth" data-type="retweet">Retweet</a>
+                               </div>
+                               <div class="col-md-6">
+                                   <a class="btn btn-primary fullwidth" data-type="retweet">Tweet</a>
+                               </div>
+                           </div>
+                       </div>
+                       <!--/.Card content-->
 
-                <!--Second column-->
-                <div class="col-md-3 col-centered hidden" id="card-2">
-                    <!--Card-->
-                    <div class="card">
-                        <!--Card content-->
-                        <div class="card-block">
-                            <!--Title-->
-                            <h4 class="card-title">Card title</h4>
-                            <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Button</a>
-                        </div>
-                        <!--/.Card content-->
+                   </div>
+                   <!--/.Card-->
+                   <!--Level-1-end---->
+               </div>
 
-                    </div>
-                    <!--/.Card-->
-                </div>
-                <!--/.Second column-->
+               <div class="col-md-3 col-centered hidden card-container" data-step="2" data-parent="follow">
+                   <!--Card-->
+                   <div class="card">
+                       <!--Card content-->
+                       <div class="card-block">
+                           <!--Title-->
+                           <h4 class="card-title">Follow</h4>
+                           <!--Text-->
+                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                           <div class="text-lg-center task-type-container">
+                               <div class="col-md-6">
+                                   <a class="btn btn-primary fullwidth" data-type="follow-custom-csv">Custom CSV</a>
+                               </div>
+                               <div class="col-md-6">
+                                   <a class="btn btn-secondary fullwidth" data-type="follow-followers-of">Followers of</a>
+                               </div>
+                               <div class="col-md-6">
+                                   <a class="btn btn-default fullwidth" data-type="follow-people-with-tweet-of">People with tweet of</a>
+                               </div>
+                           </div>
+                       </div>
+                       <!--/.Card content-->
+                   </div>
+                   <!--/.Card-->
+               </div>
 
-                <!--Second column-->
-                <div class="col-md-3 col-centered hidden custom-trigger" id="card-follow-2">
-                    <!--Card-->
-                    <div class="card">
-                        <!--Card content-->
-                        <div class="card-block">
-                            <!--Title-->
-                            <h4 class="card-title">Follow Card</h4>
-                            <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary" data-trigger="follow-3">Button</a>
-                        </div>
-                        <!--/.Card content-->
+               <div class="col-md-3 col-centered hidden card-container" data-step="3" data-parent="follow-custom-csv">
+                   <!--Card-->
+                   <div class="card">
+                       <!--Card content-->
+                       <div class="card-block">
+                           <h4 class="card-title">Custom CSV</h4>
+                           <form class="form" method="POST">
+                             {% csrf_token %}
+                               <div class="md-form">
+                                   <input type='hidden' name='action' value='follow'/>
+                                   <input type='hidden' name='sub_action' value='follow-custom-csv'/>
+                                   <input type='file'   name='target' class='form-control' required />
+                                   <label>list.csv/xls</label>
+                                   <div class="text-center">
+                                       <button class="btn btn-deep-purple" type="submit">Schedule</button>
+                                   </div>
+                               </div>
+                           </form>
+                       </div>
+                       <!--/.Card content-->
+                   </div>
+                   <!--/.Card-->
+               </div>
 
-                    </div>
-                    <!--/.Card-->
-                </div>
-                <!--/.Second column-->
+               <div class="col-md-3 col-centered hidden card-container" data-step="3" data-parent="follow-followers-of">
+                   <!--Card-->
+                   <div class="card">
+                       <!--Card content-->
+                       <div class="card-block">
+                           <h4 class="card-title">Followers of</h4>
+                           <form class="form" method="POST">
+                             {% csrf_token %}
+                               <div class="md-form">
+                                   <input type='hidden' name='action' value='follow'/>
+                                   <input type='hidden' name='sub_action' value='follow-followers-of'/>
+                                   <input type='text'   name='target' class='form-control' required />
+                                   <label>@username</label>
+                                   <div class="text-center">
+                                       <button class="btn btn-deep-purple" type="submit">Schedule</button>
+                                   </div>
+                               </div>
+                           </form>
+                       </div>
+                       <!--/.Card content-->
+                   </div>
+                   <!--/.Card-->
+               </div>
 
-                <!--Third column-->
-                <div class="col-md-3 col-centered hidden" id="follow-3">
-                    <!--Card-->
-                    <div class="card">
-                        <!--Card content-->
-                        <div class="card-block">
-                            <!--Title-->
-                            <h4 class="card-title">Card 3</h4>
-                            <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Button</a>
-                        </div>
-                        <!--/.Card content-->
+               <div class="col-md-3 col-centered hidden card-container" data-step="3" data-parent="follow-people-with-hash">
+                   <!--Card-->
+                   <div class="card-block">
+                       <h4 class="card-title">Followers of</h4>
+                       <form class="form" method="POST">
+                         {% csrf_token %}
+                           <div class="md-form">
+                               <input type='hidden' name='action' value='follow'/>
+                               <input type='hidden' name='sub_action' value='follow-people-with-hash'/>
+                               <input type='text'   name='target' class='form-control' required />
+                               <label>@username</label>
+                               <div class="text-center">
+                                   <button class="btn btn-deep-purple" type="submit">Schedule</button>
+                               </div>
+                           </div>
+                       </form>
+                   </div>
+                   <!--/.Card-->
+               </div>
 
-                    </div>
-                    <!--/.Card-->
-                </div>
-                <!--/.Third column-->
+               <div class="col-md-3 col-centered hidden card-container" data-step="2" data-parent="unfollow">
+                   <!--Card-->
+                   <div class="card">
+                       <!--Card content-->
+                       <div class="card-block">
+                           <!--Title-->
+                           <h4 class="card-title">Unfollow</h4>
+                           <!--Text-->
+                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                           <div class="text-lg-center task-type-container">
+                               <div class="col-md-6">
+                                   <a href="#" class="btn btn-primary fullwidth">All</a>
+                               </div>
+                               <div class="col-md-6">
+                                   <a href="#" class="btn btn-secondary fullwidth" data-type="people-of-list">People of List</a>
+                               </div>
+                               <div class="col-md-6">
+                                   <a href="#" class="btn btn-default fullwidth" data-type="people-recently">People Recently</a>
+                               </div>
+                               <div class="col-md-6">
+                                   <a href="#" class="btn btn-default fullwidth" data-type="unfollow-custom-csv">Custom CSV</a>
+                               </div>
+                           </div>
+                       </div>
+                       <!--/.Card content-->
 
-                <!--Third column-->
-                <div class="col-md-3 col-centered hidden" id="card-3">
-                    <!--Card-->
-                    <div class="card">
-                        <!--Card content-->
-                        <div class="card-block">
-                            <!--Title-->
-                            <h4 class="card-title">Card title</h4>
-                            <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Button</a>
-                        </div>
-                        <!--/.Card content-->
+                   </div>
+                   <!--/.Card-->
+               </div>
 
-                    </div>
-                    <!--/.Card-->
-                </div>
-                <!--/.Third column-->
+               <div class="col-md-3 col-centered hidden card-container" data-step="3" data-parent="people-of-list">
+                   <!--Card-->
+                   <div class="card">
+                       <!--Card content-->
+                       <div class="card-block">
+                           <h4 class="card-title">People of List</h4>
 
-                <!--Fourth column-->
-                <div class="col-md-3 col-centered hidden" id="card-4">
-                    <!--Card-->
-                    <div class="card">
-                        <!--Card content-->
-                        <div class="card-block">
-                            <!--Title-->
-                            <h4 class="card-title">Card title</h4>
-                            <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Button</a>
-                        </div>
-                        <!--/.Card content-->
+                           <form class="form">
+                               <div class="md-form">
+                                   <input type="text" id="form1" class="form-control">
+                                   <label for="form1" class="">Example label</label>
+                                   <div class="text-center">
+                                       <button class="btn btn-deep-purple">Login</button>
+                                   </div>
+                               </div>
+                           </form>
+                       </div>
+                       <!--/.Card content-->
 
-                    </div>
-                    <!--/.Card-->
-                </div>
-                <!--/.Fourth column-->
+                   </div>
+                   <!--/.Card-->
+               </div>
+
+               <div class="col-md-3 col-centered hidden card-container" data-step="3" data-parent="people-recently">
+                   <!--Card-->
+                   <div class="card">
+                       <!--Card content-->
+                       <div class="card-block">
+                           <h4 class="card-title">People Recently</h4>
+
+                           <form class="form">
+                               <div class="md-form">
+                                   <input type="text" id="form1" class="form-control">
+                                   <label for="form1" class="">Example label</label>
+                                   <div class="text-center">
+                                       <button class="btn btn-deep-purple">Login</button>
+                                   </div>
+                               </div>
+                           </form>
+                       </div>
+                       <!--/.Card content-->
+
+                   </div>
+                   <!--/.Card-->
+               </div>
+
+               <div class="col-md-3 col-centered hidden card-container" data-step="3" data-parent="unfollow-custom-csv">
+                   <!--Card-->
+                   <div class="card">
+                       <!--Card content-->
+                       <div class="card-block">
+                           <h4 class="card-title">Custom CSV</h4>
+
+                           <form class="form">
+                               <div class="md-form">
+                                   <input type="text" id="form1" class="form-control">
+                                   <label for="form1" class="">Example label</label>
+                                   <div class="text-center">
+                                       <button class="btn btn-deep-purple">Login</button>
+                                   </div>
+                               </div>
+                           </form>
+                       </div>
+                       <!--/.Card content-->
+
+                   </div>
+                   <!--/.Card-->
+               </div>
+
             </div>
             <div class="clearfix"></div>
             <div class="tasks-process margintop40">
