@@ -105,7 +105,7 @@
                                    <a class="btn btn-info fullwidth" data-type="retweet">Retweet</a>
                                </div>
                                <div class="col-md-6">
-                                   <a class="btn btn-primary fullwidth" data-type="retweet">Tweet</a>
+                                   <a class="btn btn-primary fullwidth" data-type="tweet">Tweet</a>
                                </div>
                            </div>
                        </div>
@@ -124,7 +124,7 @@
                            <!--Title-->
                            <h4 class="card-title">Follow</h4>
                            <!--Text-->
-                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                           <p class="card-text">Select a sub action you want to schedule.</p>
                            <div class="text-lg-center task-type-container">
                                <div class="col-md-6">
                                    <a class="btn btn-primary fullwidth" data-type="follow-custom-csv">Custom CSV</a>
@@ -133,7 +133,7 @@
                                    <a class="btn btn-secondary fullwidth" data-type="follow-followers-of">Followers of</a>
                                </div>
                                <div class="col-md-6">
-                                   <a class="btn btn-default fullwidth" data-type="follow-people-with-tweet-of">People with tweet of</a>
+                                   <a class="btn btn-default fullwidth" data-type="follow-people-with-hash">People who tweeted for #hashtag</a>
                                </div>
                            </div>
                        </div>
@@ -148,13 +148,13 @@
                        <!--Card content-->
                        <div class="card-block">
                            <h4 class="card-title">Custom CSV</h4>
-                           <form class="form" method="POST">
+                           <form class="form" method="POST" enctype="multipart/form-data">
                              {% csrf_token %}
                                <div class="md-form">
                                    <input type='hidden' name='action' value='follow'/>
                                    <input type='hidden' name='sub_action' value='follow-custom-csv'/>
-                                   <input type='file'   name='target' class='form-control' required />
-                                   <label>list.csv/xls</label>
+                                   <input type='file'   name='docfile' class='form-control' required />
+                                   <label></label>
                                    <div class="text-center">
                                        <button class="btn btn-deep-purple" type="submit">Schedule</button>
                                    </div>
@@ -200,7 +200,7 @@
                                <input type='hidden' name='action' value='follow'/>
                                <input type='hidden' name='sub_action' value='follow-people-with-hash'/>
                                <input type='text'   name='target' class='form-control' required />
-                               <label>@username</label>
+                               <label>#trend</label>
                                <div class="text-center">
                                    <button class="btn btn-deep-purple" type="submit">Schedule</button>
                                </div>
