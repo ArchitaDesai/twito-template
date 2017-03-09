@@ -43,7 +43,7 @@
             <a href="/" class="navbar-brand logo"><img src="{% static "img/logo.png" %}" class="img-responsive" alt=""></a>
             <div class="collapse navbar-toggleable-xs" id="collapseEx2">
                 <!--Links-->
-                <ul class="nav navbar-nav float-lg-right margintop">
+                <ul class="nav navbar-nav fr margintop">
                     <li class="nav-item">
                         <a class="nav-link">{{ user.username }}</a>
                     </li>
@@ -79,9 +79,24 @@
 
             <div class="margintop marginbottom40">Check out our how-to-do page to learn about scheduling tasks <a href="#">Link</a> </div>
 
+            <br>
+            <p>
+              {% if messages %}
+              <ul class="messages">
+                {% for msg in messages %}
+                <li>
+                  <div class="alert alert-{{msg.level_tag}}" role="alert">
+   	              {{msg.message}}
+  	              </div>
+                </li>
+               {% endfor %}
+             </ul>
+             {% endif %}
+           </p>
+
             <div class="row-centered">
 
-              <div class="col-md-3 col-centered card-container" data-step="1">
+              <div class="col-md-3 col-sm-12 col-centered card-container" data-step="1">
                    <!--Card-->
                    <!--Level-1------->
                    <div class="card">
@@ -116,7 +131,7 @@
                    <!--Level-1-end---->
                </div>
 
-               <div class="col-md-3 col-centered hidden card-container" data-step="2" data-parent="follow">
+               <div class="col-md-3 col-sm-12 col-centered hidden card-container" data-step="2" data-parent="follow">
                    <!--Card-->
                    <div class="card">
                        <!--Card content-->
@@ -127,13 +142,16 @@
                            <p class="card-text">Select a sub action you want to schedule.</p>
                            <div class="text-lg-center task-type-container">
                                <div class="col-md-6">
-                                   <a class="btn btn-primary fullwidth" data-type="follow-custom-csv">Custom CSV</a>
+                                   <a class="btn btn-primary fullwidth" data-type="follow-csv">From CSV file</a>
                                </div>
                                <div class="col-md-6">
-                                   <a class="btn btn-secondary fullwidth" data-type="follow-followers-of">Followers of</a>
+                                   <a class="btn btn-secondary fullwidth" data-type="follow-followers-of">Followers of someone</a>
                                </div>
                                <div class="col-md-6">
-                                   <a class="btn btn-default fullwidth" data-type="follow-people-with-hash">People who tweeted for #hashtag</a>
+                                   <a class="btn btn-default fullwidth" data-type="follow-people-with-hash">People who tweeted for #trend</a>
+                               </div>
+                               <div class="col-md-6">
+                                   <a class="btn btn-info fullwidth" data-type="follow-people-of-list">People from a list</a>
                                </div>
                            </div>
                        </div>
@@ -142,17 +160,17 @@
                    <!--/.Card-->
                </div>
 
-               <div class="col-md-3 col-centered hidden card-container" data-step="3" data-parent="follow-custom-csv">
+               <div class="col-md-3 col-sm-12 col-centered hidden card-container" data-step="3" data-parent="follow-csv">
                    <!--Card-->
                    <div class="card">
                        <!--Card content-->
                        <div class="card-block">
-                           <h4 class="card-title">Custom CSV</h4>
+                           <h4 class="card-title">Upload a CSV file with usernames/ids</h4>
                            <form class="form" method="POST" enctype="multipart/form-data">
                              {% csrf_token %}
                                <div class="md-form">
                                    <input type='hidden' name='action' value='follow'/>
-                                   <input type='hidden' name='sub_action' value='follow-custom-csv'/>
+                                   <input type='hidden' name='sub_action' value='follow-csv'/>
                                    <input type='file'   name='csv_file' class='form-control' required />
                                    <label></label>
                                    <div class="text-center">
@@ -166,19 +184,26 @@
                    <!--/.Card-->
                </div>
 
-               <div class="col-md-3 col-centered hidden card-container" data-step="3" data-parent="follow-followers-of">
+               <div class="col-md-3 col-sm-12 col-centered hidden card-container" data-step="3" data-parent="follow-followers-of">
                    <!--Card-->
                    <div class="card">
                        <!--Card content-->
                        <div class="card-block">
-                           <h4 class="card-title">Followers of</h4>
+                           <h4 class="card-title">Follow Followers of @username</h4>
                            <form class="form" method="POST">
                              {% csrf_token %}
                                <div class="md-form">
                                    <input type='hidden' name='action' value='follow'/>
                                    <input type='hidden' name='sub_action' value='follow-followers-of'/>
-                                   <input type='text'   name='target' class='form-control' required />
-                                   <label>@username</label>
+                                   <div class="md-form input-group">
+                                    <span class="input-group-addon" id="basic-addon1">@</span>
+                                    <input type="text" name='target' class="form-control" placeholder="username" aria-describedby="basic-addon1" required />
+                                   </div>
+                                   <div class="md-form">
+                                     <input type="text" name='amount' class="form-control" required >
+                                     <label>How many users? (20k max)</label>
+                                   </div>
+
                                    <div class="text-center">
                                        <button class="btn btn-deep-purple" type="submit">Schedule</button>
                                    </div>
@@ -190,17 +215,20 @@
                    <!--/.Card-->
                </div>
 
-               <div class="col-md-3 col-centered hidden card-container" data-step="3" data-parent="follow-people-with-hash">
+               <div class="col-md-3 col-sm-12 col-centered hidden card-container" data-step="3" data-parent="follow-people-with-hash">
+                 <div class="card">
                    <!--Card-->
                    <div class="card-block">
-                       <h4 class="card-title">Followers of</h4>
+                       <h4 class="card-title">People with tweets of #trend</h4>
                        <form class="form" method="POST">
                          {% csrf_token %}
                            <div class="md-form">
                                <input type='hidden' name='action' value='follow'/>
                                <input type='hidden' name='sub_action' value='follow-people-with-hash'/>
-                               <input type='text'   name='target' class='form-control' required />
-                               <label>#trend</label>
+                               <div class="md-form input-group">
+                                <span class="input-group-addon" id="basic-addon1">#</span>
+                                <input type="text" name='target' class="form-control" placeholder="trend" aria-describedby="basic-addon1" required />
+                               </div>
                                <div class="text-center">
                                    <button class="btn btn-deep-purple" type="submit">Schedule</button>
                                </div>
@@ -208,9 +236,34 @@
                        </form>
                    </div>
                    <!--/.Card-->
+                 </div>
                </div>
 
-               <div class="col-md-3 col-centered hidden card-container" data-step="2" data-parent="unfollow">
+               <div class="col-md-3 col-sm-12 col-centered hidden card-container" data-step="3" data-parent="follow-people-of-list">
+                 <div class="card">
+                   <!--Card-->
+                   <div class="card-block">
+                       <h4 class="card-title">People of a list</h4>
+                       <form class="form" method="POST">
+                         {% csrf_token %}
+                           <div class="md-form">
+                               <input type='hidden' name='action' value='follow'/>
+                               <input type='hidden' name='sub_action' value='follow-people-of-list'/>
+                               <div class="md-form input-group">
+                               <input type="text" name='username' class="form-control" placeholder="list owner's id" aria-describedby="basic-addon1" required />
+                               <input type="text" name='listname' class="form-control" placeholder="list-id" aria-describedby="basic-addon1" required />
+                               </div>
+                               <div class="text-center">
+                                   <button class="btn btn-deep-purple" type="submit">Schedule</button>
+                               </div>
+                           </div>
+                       </form>
+                   </div>
+                   <!--/.Card-->
+                 </div>
+               </div>
+
+               <div class="col-md-3 col-sm-12 col-centered hidden card-container" data-step="2" data-parent="unfollow">
                    <!--Card-->
                    <div class="card">
                        <!--Card content-->
@@ -218,19 +271,19 @@
                            <!--Title-->
                            <h4 class="card-title">Unfollow</h4>
                            <!--Text-->
-                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                           <p class="card-text">Select a sub action you want to schedule.</p>
                            <div class="text-lg-center task-type-container">
                                <div class="col-md-6">
-                                   <a href="#" class="btn btn-primary fullwidth">All</a>
+                                   <a class="btn btn-primary fullwidth" data-type="unfollow-all">All</a>
                                </div>
                                <div class="col-md-6">
-                                   <a href="#" class="btn btn-secondary fullwidth" data-type="people-of-list">People of List</a>
+                                   <a class="btn btn-secondary fullwidth" data-type="unfollow-people-of-list">People of List</a>
                                </div>
                                <div class="col-md-6">
-                                   <a href="#" class="btn btn-default fullwidth" data-type="people-recently">People Recently</a>
+                                   <a class="btn btn-default fullwidth" data-type="unfollow-last-custom">Last Custom</a>
                                </div>
                                <div class="col-md-6">
-                                   <a href="#" class="btn btn-default fullwidth" data-type="unfollow-custom-csv">Custom CSV</a>
+                                   <a class="btn btn-default fullwidth" data-type="unfollow-custom-csv">From CSV file</a>
                                </div>
                            </div>
                        </div>
@@ -240,65 +293,88 @@
                    <!--/.Card-->
                </div>
 
-               <div class="col-md-3 col-centered hidden card-container" data-step="3" data-parent="people-of-list">
+               <div class="col-md-3 col-sm-12 col-centered hidden card-container" data-step="3" data-parent="unfollow-all">
+                 <div class="card">
+                   <!--Card-->
+                   <div class="card-block">
+                       <h4 class="card-title">Unfollow all people you follow</h4>
+                       <form class="form" method="POST">
+                         {% csrf_token %}
+                           <div class="md-form">
+                               <input type='hidden' name='action' value='unfollow'/>
+                               <input type='hidden' name='sub_action' value='unfollow-all'/>
+                               <div class="text-center">
+                                   <button class="btn btn-deep-purple" type="submit">Schedule</button>
+                               </div>
+                           </div>
+                       </form>
+                   </div>
+                 </div>
+                   <!--/.Card-->
+               </div>
+
+               <div class="col-md-3 col-sm-12 col-centered hidden card-container" data-step="3" data-parent="unfollow-people-of-list">
+                 <div class="card">
+                   <!--Card-->
+                   <div class="card-block">
+                       <h4 class="card-title">unfollow people of a list</h4>
+                       <form class="form" method="POST">
+                         {% csrf_token %}
+                           <div class="md-form">
+                               <input type='hidden' name='action' value='unfollow'/>
+                               <input type='hidden' name='sub_action' value='unfollow-people-of-list'/>
+                               <div class="md-form input-group">
+                                <input type="text" name='username' class="form-control" placeholder="list owner's if" aria-describedby="basic-addon1" required />
+                                <input type="text" name='listname' class="form-control" placeholder="list id" aria-describedby="basic-addon1" required>
+                               </div>
+                               <div class="text-center">
+                                   <button class="btn btn-deep-purple" type="submit">Schedule</button>
+                               </div>
+                           </div>
+                       </form>
+                   </div>
+                   <!--/.Card-->
+                 </div>
+               </div>
+
+               <div class="col-md-3 col-sm-12 col-centered hidden card-container" data-step="3" data-parent="unfollow-last-custom">
                    <!--Card-->
                    <div class="card">
                        <!--Card content-->
                        <div class="card-block">
-                           <h4 class="card-title">People of List</h4>
-
-                           <form class="form">
+                           <h4 class="card-title">Unfollow Last Custom number of followings</h4>
+                           <form class="form" method="POST" enctype="multipart/form-data">
+                             {% csrf_token %}
                                <div class="md-form">
-                                   <input type="text" id="form1" class="form-control">
-                                   <label for="form1" class="">Example label</label>
+                                   <input type='hidden' name='action' value='unfollow'/>
+                                   <input type='hidden' name='sub_action' value='unfollow-last-custom'/>
+                                   <input type='text'   name='amount' class='form-control' placeholder="100? (max 20k)" required />
+                                   <label></label>
                                    <div class="text-center">
-                                       <button class="btn btn-deep-purple">Login</button>
+                                       <button class="btn btn-deep-purple" type="submit">Schedule</button>
                                    </div>
                                </div>
                            </form>
                        </div>
                        <!--/.Card content-->
-
                    </div>
                    <!--/.Card-->
                </div>
 
-               <div class="col-md-3 col-centered hidden card-container" data-step="3" data-parent="people-recently">
-                   <!--Card-->
-                   <div class="card">
-                       <!--Card content-->
-                       <div class="card-block">
-                           <h4 class="card-title">People Recently</h4>
-
-                           <form class="form">
-                               <div class="md-form">
-                                   <input type="text" id="form1" class="form-control">
-                                   <label for="form1" class="">Example label</label>
-                                   <div class="text-center">
-                                       <button class="btn btn-deep-purple">Login</button>
-                                   </div>
-                               </div>
-                           </form>
-                       </div>
-                       <!--/.Card content-->
-
-                   </div>
-                   <!--/.Card-->
-               </div>
-
-               <div class="col-md-3 col-centered hidden card-container" data-step="3" data-parent="unfollow-custom-csv">
+               <div class="col-md-3 col-sm-12 col-centered hidden card-container" data-step="3" data-parent="unfollow-custom-csv">
                    <!--Card-->
                    <div class="card">
                        <!--Card content-->
                        <div class="card-block">
                            <h4 class="card-title">Custom CSV</h4>
-
-                           <form class="form">
+                           <form class="form" method="POST" enctype="multipart/form-data">
+                             {% csrf_token %}
                                <div class="md-form">
-                                   <input type="text" id="form1" class="form-control">
-                                   <label for="form1" class="">Example label</label>
+                                   <input type='hidden' name='action' value='unfollow'/>
+                                   <input type='hidden' name='sub_action' value='unfollow-custom-csv'/>
+                                   <input type='file'   name='csv_file' class='form-control' required />
                                    <div class="text-center">
-                                       <button class="btn btn-deep-purple">Login</button>
+                                       <button class="btn btn-deep-purple" type="submit">Schedule</button>
                                    </div>
                                </div>
                            </form>
