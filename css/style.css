@@ -157,10 +157,6 @@ body {
     padding: 0;
     height: 100%;
 }
-#wrapper {
-    min-height: 80%;
-    height: 90%;
-}
 footer{
     clear: both;
     position: relative;
@@ -186,7 +182,13 @@ footer{
    vertical-align: top;
 }
 .fullwidth{width: 100%;}
-.hidden{display: none;}
+.hidden{display: none !important;}
+
+@media screen and (max-width: 1200px){
+    .col-centered {
+        display: inherit;
+    }
+}
 
 @media screen and (min-width: 720px){
     .modal {
@@ -208,10 +210,4 @@ footer{
         vertical-align: middle;
     }
     #addnewapp .modal-body{width: 600px;}
-}
-
-@media screen and (max-height: 860px){
-    #wrapper {
-        height: auto;
-    }
 }
