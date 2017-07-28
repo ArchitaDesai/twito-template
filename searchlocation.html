@@ -98,9 +98,15 @@
                 <div class="card-block">
                     <!--Title-->
 
-                    <h6 class="card-title">Tweeted By : {{ i.user.name }}  @{{ i.user.screen_name }}</h6>
-
+                    <h6 class="card-title">
+                        <div class="col-md-2">
+                        <img class="img-rounded" src="{{ i.user.profile_image_url_https }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
+                        </div>
+                        <div class="col-md-10">
+                              <h6>{{ i.user.name }}  @{{ i.user.screen_name }}</h6>
+                    </div>
                     <!--Text-->
+                    </h6>
                     <p class="card-text">{{ i.text }}</p>
 
                 </div>
