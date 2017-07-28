@@ -23,7 +23,23 @@
     <!-- Your custom styles (optional) -->
     <link href="{% static "css/style.css" %}" rel="stylesheet">
 
+    <!--
+    <script type="javascript">
+        function SearchPagination(){
 
+            var TotalPage = {{ totalpage }};
+            for(i = 1;i <= TotalPage;i++)
+            {
+                if(document.getElementById('page'+i))
+                    document.getElementById('page'+i).style.display='none';
+
+            }
+            if(document.getElementById('page'+i))
+                    document.getElementById('page'+i).style.display='block';
+
+        }
+    </script>
+-->
 
 </head>
 

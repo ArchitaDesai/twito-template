@@ -135,12 +135,15 @@
         <!--Content-->
         <div class="modal-content">
             <!--Header-->
-            <div class="modal-header">
+
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+
             </div>
             <!--Body-->
+
+
             <div class="modal-body flex-center text-lg-center">
                     <!--Form with header-->
                     <div class="card">
@@ -149,7 +152,7 @@
 
                             <!--Header-->
                             <div class="text-xs-center">
-                                <h3>Enter Location Information</h3>
+                                <h3 class="card-title">Enter Location Information</h3>
                                 <hr class="mt-2 mb-2">
                             </div>
 
@@ -177,8 +180,16 @@
 
                                 <div class="md-form">
                                     <i class="fa fa-pencil prefix"></i>
+
                                     <label for="id_radiusUnit">Radius Unit :</label>
-                                    <input type="text" id="id_radiusUnit" name="radiusUnit" class="form-control">
+                                    <br>
+                                    <br>
+                                    <select id="id_radiusUnit" name="radiusUnit" class="form-control">
+                                        <option value="km">km</option>
+                                        <option value="mi">mi</option>
+                                    </select>
+
+
                                 </div>
 
 
