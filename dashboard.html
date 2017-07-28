@@ -96,9 +96,11 @@
                 <!--Card content-->
                 <div class="card-block">
                     <!--Title-->
-                    <h4 class="card-title">{{ app.AppName }}</h4>
-                    <a href="/dashboard/{{ app.id }}" class="text-lg-right link-text"><h5>Manage <i class="fa fa-chevron-right"></i></h5></a>
-                    <hr>
+                    <h4 class="card-title">{{ app.AppName }}
+
+                     <a href="/dashboard/{{ app.id }}" class="text-lg-right link-text"><h5>Manage <i class="fa fa-chevron-right"></i></h5></a>
+
+                        <hr>
                     <!--Text-->
                     <p class="card-text">Created on : {{ app.created_at }}</p>
                     <a href="/dashboard/{{ app.id }}/delete/" class="btn btn-danger"><i class="fa fa-trash-o left"></i>Delete</a>
@@ -117,24 +119,32 @@
     <div class="container">
         <div class="row">
 
-            <!--First column-->
-            <div class="col-md-6">
-                <h5 class="title">Footer Content</h5>
-                <p>Here you can use rows and columns here to organize your footer content.</p>
-            </div>
-            <!--/.First column-->
 
-            <!--Second column-->
-            <div class="col-md-6">
-                <h5 class="title">Links</h5>
-                <ul>
-                    <li><a href="#!">Link 1</a></li>
-                    <li><a href="#!">Link 2</a></li>
-                    <li><a href="#!">Link 3</a></li>
-                    <li><a href="#!">Link 4</a></li>
-                </ul>
+            <div class="col-sm-4">
+                <dl class="text-justify">
+                    <dt>About Us</dt>
+                    <dd><a href="">First</a></dd>
+                    <dd><a href="">Second</a></dd>
+                    <dd><a href="">Third</a></dd>
+                </dl>
             </div>
-            <!--/.Second column-->
+            <div class="col-sm-4">
+                <dl class="text-justify">
+                    <dt>Contact Us</dt>
+                    <dd><a href="">First</a></dd>
+                    <dd><a href="">Second</a></dd>
+                    <dd><a href="">Third</a></dd>
+                </dl>
+            </div>
+            <div class="col-sm-4">
+                <dl class="text-justify">
+                    <dt>Learn More</dt>
+                    <dd><a href="">First</a></dd>
+                    <dd><a href="">Second</a></dd>
+                    <dd><a href="">Third</a></dd>
+                </dl>
+            </div>
+
         </div>
     </div>
     <!--/.Footer Links-->
@@ -150,6 +160,9 @@
 
 </footer>
 <!--/.Footer-->
+
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="addnewapp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -196,6 +209,19 @@
                                 <label for="id_ConsumerToken">Consumer Token :</label>
                                 <input type="text" id="id_ConsumerToken" name="ConsumerToken" class="form-control">
                             </div>
+
+                            <div class="md-form">
+                                <i class="fa fa-lock prefix"></i>
+                                <label for="id_access_token">Access Token :</label>
+                                <input type="text" id="id_access_token" name="access_token" class="form-control">
+                            </div>
+
+                            <div class="md-form">
+                                <i class="fa fa-lock prefix"></i>
+                                <label for="id_access_key">Access Key :</label>
+                                <input type="text" id="id_access_key" name="access_key" class="form-control">
+                            </div>
+
 
                             <div class="text-xs-center">
                                 <button type="submit" class="btn btn-deep-purple">Add App</button>

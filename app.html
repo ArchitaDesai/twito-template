@@ -70,6 +70,10 @@
             <div class="clearfix"></div>
             <div class="margintop marginbottom40">Below are the users connected with this App. Connect more or go to individual users to schedule tasks!</div>
 
+
+            <a data-toggle="modal" data-target="#searchlocationwise"><button type="button" class="btn btn-primary">Search Tweets Locationwise</button></a>
+
+
             {% for user in users %}
             <!--Card Light-->
             <div class="card">
@@ -94,27 +98,110 @@
     <div class="container">
         <div class="row">
 
-            <!--First column-->
-            <div class="col-md-6">
-                <h5 class="title">Footer Content</h5>
-                <p>Here you can use rows and columns here to organize your footer content.</p>
-            </div>
-            <!--/.First column-->
 
-            <!--Second column-->
-            <div class="col-md-6">
-                <h5 class="title">Links</h5>
-                <ul>
-                    <li><a href="#!">Link 1</a></li>
-                    <li><a href="#!">Link 2</a></li>
-                    <li><a href="#!">Link 3</a></li>
-                    <li><a href="#!">Link 4</a></li>
-                </ul>
+            <div class="col-sm-4">
+                <dl class="text-justify">
+                    <dt>About Us</dt>
+                    <dd><a href="">First</a></dd>
+                    <dd><a href="">Second</a></dd>
+                    <dd><a href="">Third</a></dd>
+                </dl>
             </div>
-            <!--/.Second column-->
+            <div class="col-sm-4">
+                <dl class="text-justify">
+                    <dt>Contact Us</dt>
+                    <dd><a href="">First</a></dd>
+                    <dd><a href="">Second</a></dd>
+                    <dd><a href="">Third</a></dd>
+                </dl>
+            </div>
+            <div class="col-sm-4">
+                <dl class="text-justify">
+                    <dt>Learn More</dt>
+                    <dd><a href="">First</a></dd>
+                    <dd><a href="">Second</a></dd>
+                    <dd><a href="">Third</a></dd>
+                </dl>
+            </div>
+
         </div>
     </div>
     <!--/.Footer Links-->
+
+
+    <!-- Modal -->
+<div class="modal fade" id="searchlocationwise" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body flex-center text-lg-center">
+                    <!--Form with header-->
+                    <div class="card">
+                        <div class="card-block">
+
+
+                            <!--Header-->
+                            <div class="text-xs-center">
+                                <h3>Enter Location Information</h3>
+                                <hr class="mt-2 mb-2">
+                            </div>
+
+                            <!--Body-->
+                            <form method="POST">
+                            {% csrf_token %}
+                            {{ form.non_field_errors }}
+                                <div class="md-form">
+                                    <i class="fa fa-pencil prefix"></i>
+                                    <label for="id_latitude">Latitude :</label>
+                                    <input type="text" id="id_latitude" name="latitude" class="form-control">
+                                </div>
+
+                                <div class="md-form">
+                                    <i class="fa fa-pencil prefix"></i>
+                                    <label for="id_longitude">Longitude :</label>
+                                    <input type="text" id="id_longitude" name="longitude" class="form-control">
+                                </div>
+
+                                <div class="md-form">
+                                    <i class="fa fa-pencil prefix"></i>
+                                    <label for="id_radius">Radius :</label>
+                                    <input type="text" id="id_radius" name="radius" class="form-control">
+                                </div>
+
+                                <div class="md-form">
+                                    <i class="fa fa-pencil prefix"></i>
+                                    <label for="id_radiusUnit">Radius Unit :</label>
+                                    <input type="text" id="id_radiusUnit" name="radiusUnit" class="form-control">
+                                </div>
+
+
+                                <div class="help-block">
+                                    <h4>Enter Radius in 90km or 90mi format where, km stands for kilometers and mi stands for miles</h4>
+                                </div>
+
+
+                            <div class="text-xs-center">
+                                <button type="submit" class="btn btn-deep-purple">Search</button>
+                            </div>
+                           </form>
+
+                        </div>
+                    </div>
+                    <!--/Form with header-->
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+
+
 
     <!--Copyright-->
     <div class="footer-copyright">
