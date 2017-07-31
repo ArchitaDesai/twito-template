@@ -160,6 +160,32 @@
                             <form method="POST">
                             {% csrf_token %}
                             {{ form.non_field_errors }}
+
+                                <div class="md-form">
+                                    <i class="fa fa-pencil prefix"></i>
+                                    <label for="id_keyword">Keyword :</label>
+                                    <input type="text" id="id_keyword" name="keyword" class="form-control">
+                                </div>
+
+                                <div class="md-form">
+                                    <i class="fa fa-pencil prefix"></i>
+                                    <label for="id_lang">Language :</label>
+                                    <br>
+                                    <br>
+                                    <select id="id_lang" name="lang" class="form-control">
+                                        <option value="">-</option>
+                                        <option value="Chinese">Chinese</option>
+                                        <option value="English">English</option>
+                                        <option value="Gujarati">Gujarati</option>
+                                        <option value="Hindi">Hindi</option>
+                                        <option value="Japanese">Japanses</option>
+                                        <option value="Marathi">Marathi</option>
+                                        <option value="Russian">Russain</option>
+                                        <option value="Sanskrit">Sanskrit</option>
+
+                                    </select>
+                                </div>
+
                                 <div class="md-form">
                                     <i class="fa fa-pencil prefix"></i>
                                     <label for="id_latitude">Latitude :</label>
@@ -190,11 +216,6 @@
                                     </select>
 
 
-                                </div>
-
-
-                                <div class="help-block">
-                                    <h4>Enter Radius in 90km or 90mi format where, km stands for kilometers and mi stands for miles</h4>
                                 </div>
 
 

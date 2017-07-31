@@ -23,23 +23,30 @@
     <!-- Your custom styles (optional) -->
     <link href="{% static "css/style.css" %}" rel="stylesheet">
 
-    <!--
+
     <script type="javascript">
-        function SearchPagination(){
 
-            var TotalPage = {{ totalpage }};
-            for(i = 1;i <= TotalPage;i++)
-            {
-                if(document.getElementById('page'+i))
-                    document.getElementById('page'+i).style.display='none';
+{#        function SearchPagination(){#}
+{##}
+{#            var TotalPage = {{ totalpage }};#}
+{#            for(i = 1;i <= TotalPage;i++)#}
+{#            {#}
+{#                if(document.getElementById('page'+i))#}
+{#                    document.getElementById('page'+i).style.display='none';#}
+{##}
+{#            }#}
+{#            if(document.getElementById('page'+i))#}
+{#                    document.getElementById('page'+i).style.display='block';#}
+{##}
+{#        }#}
 
-            }
-            if(document.getElementById('page'+i))
-                    document.getElementById('page'+i).style.display='block';
+        function TweetLink(Statusobject){
 
+            window.location.href = "https://twitter.com/username/status/"+str(Statusobject.id);
         }
+
     </script>
--->
+
 
 </head>
 
@@ -98,18 +105,22 @@
                 <div class="card-block">
                     <!--Title-->
 
+                <a onclick="javascript.TweetLink(i);">
                     <h6 class="card-title">
                         <div class="col-md-2">
                         <img class="img-rounded" src="{{ i.user.profile_image_url_https }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
                         </div>
+                        <a href="{{ i.user. }}">
                         <div class="col-md-10">
                               <h6>{{ i.user.name }}  @{{ i.user.screen_name }}</h6>
-                    </div>
+                        </a>
+                        </div>
                     <!--Text-->
                     </h6>
                     <p class="card-text">{{ i.text }}</p>
 
                 </div>
+            </a>
             </div>
             {% endfor %}
 
