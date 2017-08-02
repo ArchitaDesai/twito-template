@@ -14,6 +14,10 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
+    <!--For Tab Nav Bar-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
     <!-- Bootstrap core CSS -->
     <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
 
@@ -50,6 +54,9 @@
                     <li class="nav-item">
                         <a class="nav-link">Logout</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link">My Profile</a>
+                    </li>
                 </ul>
             </div>
             <!--/.Collapse content-->
@@ -65,28 +72,70 @@
             <h2 class="fl">{{ app.AppName }}</h2>
             <div class="fr">
                 <button type="button" class="btn btn-outline-info" onclick="location.href='/dashboard/'"><i class="fa fa-chevron-left" aria-hidden="true"></i> Dashboard</button>
+
+                <!--
                 <button type="button" class="btn btn-primary" onclick="location.href='/dashboard/{{ app.id }}/connect_to_twitter/'"><i class="fa fa-twitter left"></i> Connect a Twitter Account</button>
-            </div>
-            <div class="clearfix"></div>
-            <div class="margintop marginbottom40">Below are the users connected with this App. Connect more or go to individual users to schedule tasks!</div>
-
-
+            -->
             <a data-toggle="modal" data-target="#searchlocationwise"><button type="button" class="btn btn-primary">Search Tweets Locationwise</button></a>
 
-
-            {% for user in users %}
-            <!--Card Light-->
-            <div class="card">
-                <!--Card content-->
-                <div class="card-block">
-                    <!--Title-->
-                    <img src="{{ user.profile_pic_url }}" style="width:100px"alt="Contact Person">
-                    <h4 class="card-title fl"><img></i>{{ user.name }}</h4>
-                    <a href="/dashboard/app/{{ app.id }}/{{ user.id }}/delete/" class="btn btn-danger"><i class="fa fa-trash-o left"></i>Delete</a>
-                    <a href="{{ user.screen_name }}/" class="text-lg-right link-text fr"><h5>Manage <i class="fa fa-chevron-right"></i></h5></a>
-                </div>
             </div>
-            {% endfor %}
+            <div class="clearfix"></div>
+            <div class="margintop marginbottom40">Application Info</div>
+
+            <div class="container">
+			<ul class="nav nav-tabs nav-justified">
+				<li class="active"><a href="" data-toggle="tab">Trends</a></li>
+				<li><a href="#followers" data-toggle="tab">Followers</a></li>
+				<li><a href="#friends" data-toggle="tab">Friends</a></li>
+                <li><a href="#tweets" data-toggle="tab">Tweets</a></li>
+
+
+                <li><a href="#lists" data-toggle="tab">Lists</a></li>
+				<li><a href="#likes" data-toggle="tab">Likes</a></li>
+
+
+                <li><a href="#messages" data-toggle="tab">Messages</a></li>
+				<li><a href="#tasks" data-toggle="tab">Tasks</a></li>
+
+            </ul>
+
+<!--Tab Content -->
+<div class="tab-content">
+
+				<div class="tab-pane fade in active" id="trends">
+					<p>Welcom to Trends.....
+				</div>
+				<div class="tab-pane fade" id="followers">
+					<p>Followers ........
+				</div>
+				<div class="tab-pane fade" id="friends">
+					<p>Friends.....
+				</div>
+                <div class="tab-pane fade" id="tweets">
+					<p>Tweets which include my_tweets, retweets by me, retweets of me..
+				</div>
+                <div class="tab-pane fade" id="lists">
+					<p>lists
+				</div>
+                <div class="tab-pane fade" id="likes">
+					<p>Likes whihc include likes by me and like my tweets
+				</div>
+                <div class="tab-pane fade" id="messages">
+					<p>messages
+				</div>
+
+                <div class="tab-pane fade" id="tasks">
+					<p>tasks
+				</div>
+
+
+
+</div>
+
+
+		</div>
+
+
 
         </div>
     </div>
@@ -247,6 +296,9 @@
 </footer>
 <!--/.Footer-->
 <!-- SCRIPTS -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <!-- JQuery -->
 <script type="text/javascript" src="{% static "js/jquery-3.1.1.min.js" %}"></script>
