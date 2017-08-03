@@ -84,49 +84,160 @@
 
             <div class="container">
 			<ul class="nav nav-tabs nav-justified">
-				<li class="active"><a href="" data-toggle="tab">Trends</a></li>
-				<li><a href="#followers" data-toggle="tab">Followers</a></li>
+				<li class="active"><a href="#tasks" data-toggle="tab">Tasks</a></li>
+
+                <li><a href="#followers" data-toggle="tab">Followers</a></li>
 				<li><a href="#friends" data-toggle="tab">Friends</a></li>
                 <li><a href="#tweets" data-toggle="tab">Tweets</a></li>
 
 
-                <li><a href="#lists" data-toggle="tab">Lists</a></li>
-				<li><a href="#likes" data-toggle="tab">Likes</a></li>
+                <li><a href="#likes" data-toggle="tab">Likes</a></li>
 
 
-                <li><a href="#messages" data-toggle="tab">Messages</a></li>
-				<li><a href="#tasks" data-toggle="tab">Tasks</a></li>
 
             </ul>
 
 <!--Tab Content -->
 <div class="tab-content">
 
-				<div class="tab-pane fade in active" id="trends">
-					<p>Welcom to Trends.....
-				</div>
 				<div class="tab-pane fade" id="followers">
-					<p>Followers ........
+                    <p>Followers of Authenticated User Are</p>
+                    {% for i in followers %}
+            <!--Card Light-->
+            <div class="card">
+                <!--Card content-->
+                <div class="card-block">
+                    <!--Title-->
+
+
+                    <h6 class="card-title">
+                        <div class="col-md-2">
+                        <img class="img-rounded" src="{{ i.profile_image_url_https }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
+                        </div>
+
+                        <div class="col-md-10">
+                              <h6>{{ i.name }}  @{{ i.screen_name }}</h6>
+
+                        </div>
+                    <!--Text-->
+                    </h6>
+                    <p class="card-text">{{ i.description }}</p>
+
+                </div>
+
+            </div>
+            {% endfor %}
 				</div>
 				<div class="tab-pane fade" id="friends">
-					<p>Friends.....
+                    <p>Friends of Authenticated User Are</p>
 				</div>
-                <div class="tab-pane fade" id="tweets">
-					<p>Tweets which include my_tweets, retweets by me, retweets of me..
-				</div>
-                <div class="tab-pane fade" id="lists">
-					<p>lists
-				</div>
-                <div class="tab-pane fade" id="likes">
-					<p>Likes whihc include likes by me and like my tweets
-				</div>
-                <div class="tab-pane fade" id="messages">
-					<p>messages
-				</div>
+                {% for i in friends %}
+            <!--Card Light-->
+            <div class="card">
+                <!--Card content-->
+                <div class="card-block">
+                    <!--Title-->
 
-                <div class="tab-pane fade" id="tasks">
-					<p>tasks
-				</div>
+
+                    <h6 class="card-title">
+                        <div class="col-md-2">
+                        <img class="img-rounded" src="{{ i.profile_image_url_https }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
+                        </div>
+
+                        <div class="col-md-10">
+                              <h6>{{ i.name }}  @{{ i.screen_name }}</h6>
+
+                        </div>
+                    <!--Text-->
+                    </h6>
+                    <p class="card-text">{{ i.description }}</p>
+
+                </div>
+
+            </div>
+            {% endfor %}
+                <div class="tab-pane fade" id="tweets">
+                    <p>Tweets which include my_tweets(only), retweets by me, retweets of me..(not now)</p>
+				    {% for i in tweets %}
+            <!--Card Light-->
+            <div class="card">
+                <!--Card content-->
+                <div class="card-block">
+                    <!--Title-->
+
+
+                    <h6 class="card-title">
+                        <div class="col-md-2">
+                        <img class="img-rounded" src="{{ i.user.profile_image_url_https }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
+                        </div>
+
+                        <div class="col-md-10">
+                              <h6>{{ i.user.name }}  @{{ i.user.screen_name }}</h6>
+
+                        </div>
+                    <!--Text-->
+                    </h6>
+                    <p class="card-text">{{ i.text }}</p>
+
+                </div>
+
+            </div>
+            {% endfor %}
+                </div>
+                <div class="tab-pane fade" id="likes">
+                    <p>Likes which include likes by me(only) and like my tweets (not now)</p>
+			{% for i in likes %}
+            <!--Card Light-->
+            <div class="card">
+                <!--Card content-->
+                <div class="card-block">
+                    <!--Title-->
+
+
+                    <h6 class="card-title">
+                        <div class="col-md-2">
+                        <img class="img-rounded" src="{{ i.user.profile_image_url_https }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
+                        </div>
+
+                        <div class="col-md-10">
+                              <h6>{{ i.user.name }}  @{{ i.user.screen_name }}</h6>
+
+                        </div>
+                    <!--Text-->
+                    </h6>
+                    <p class="card-text">{{ i.text }}</p>
+
+                </div>
+
+            </div>
+            {% endfor %}
+                </div>
+                <div class="tab-pane active" id="tasks">
+                    <p>List of All tasks of {{ app.AppName }} </p>
+				{% for i in tasks %}
+            <!--Card Light-->
+            <div class="card">
+                <!--Card content-->
+                <div class="card-block">
+                    <!--Title-->
+
+
+                    <h6 class="card-title">
+
+                        <div class="col-md-10">
+                              <h6>{{ i.TaskName }}</h6>
+
+                        </div>
+                    <!--Text-->
+                    </h6>
+                    <p class="card-text">By User : {{ i.user }}</p>
+                    <p class="card-text">At : {{ i.Time }}</p>
+
+                </div>
+
+            </div>
+            {% endfor %}
+                </div>
 
 
 
@@ -296,6 +407,16 @@
 </footer>
 <!--/.Footer-->
 <!-- SCRIPTS -->
+
+<!-- Bootstrap Nav bar -->
+	<!-- Latest compiled and minified JQuery -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
