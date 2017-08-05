@@ -101,152 +101,162 @@
 <div class="tab-content">
 
 				<div class="tab-pane fade" id="followers">
+                    <br>
+                    <br>
                     <p>Followers of Authenticated User Are</p>
                     {% for i in followers %}
-            <!--Card Light-->
-            <div class="card">
-                <!--Card content-->
-                <div class="card-block">
-                    <!--Title-->
+                        <!--Card Light-->
+                        <div class="card">
+                            <!--Card content-->
+                            <div class="card-block">
+                                <!--Title-->
 
 
-                    <h6 class="card-title">
-                        <div class="col-md-2">
-                        <img class="img-rounded" src="{{ i.profile_image_url_https|cut:"_normal" }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
+                                <h6 class="card-title">
+                                    <div class="col-md-2">
+                                    <img class="img-rounded" src="{{ i.profile_image_url_https|cut:"_normal" }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
+                                    </div>
+
+                                    <div class="col-md-10">
+                                          <h6>{{ i.name }}  @{{ i.screen_name }}</h6>
+
+                                    </div>
+                                <!--Text-->
+                                </h6>
+                                <p class="card-text">{{ i.description }}</p>
+
+                            </div>
+
                         </div>
-
-                        <div class="col-md-10">
-                              <h6>{{ i.name }}  @{{ i.screen_name }}</h6>
-
-                        </div>
-                    <!--Text-->
-                    </h6>
-                    <p class="card-text">{{ i.description }}</p>
-
+                    {% endfor %}
                 </div>
-
-            </div>
-            {% endfor %}
-				</div>
 				<div class="tab-pane fade" id="friends">
+                    <br>
+                    <br>
                     <p>Friends of Authenticated User Are</p>
-				</div>
-                {% for i in friends %}
-            <!--Card Light-->
-            <div class="card">
-                <!--Card content-->
-                <div class="card-block">
-                    <!--Title-->
+
+                    {% for i in friends %}
+                        <!--Card Light-->
+                        <div class="card">
+                            <!--Card content-->
+                            <div class="card-block">
+                                <!--Title-->
 
 
-                    <h6 class="card-title">
-                        <div class="col-md-2">
-                        <img class="img-rounded" src="{{ i.profile_image_url_https|cut:"_normal" }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
+                                <h6 class="card-title">
+                                    <div class="col-md-2">
+                                    <img class="img-rounded" src="{{ i.profile_image_url_https|cut:"_normal" }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
+                                    </div>
+
+                                    <div class="col-md-10">
+                                          <h6>{{ i.name }}  @{{ i.screen_name }}</h6>
+
+                                    </div>
+                                <!--Text-->
+                                </h6>
+                                <p class="card-text">{{ i.description }}</p>
+
+                            </div>
+
                         </div>
-
-                        <div class="col-md-10">
-                              <h6>{{ i.name }}  @{{ i.screen_name }}</h6>
-
-                        </div>
-                    <!--Text-->
-                    </h6>
-                    <p class="card-text">{{ i.description }}</p>
-
+                    {% endfor %}
                 </div>
-
-            </div>
-            {% endfor %}
                 <div class="tab-pane fade" id="tweets">
+                    <br>
+                    <br>
                     <p>Tweets which include my_tweets(only), retweets by me, retweets of me..(not now)</p>
 				    {% for i in tweets %}
-            <!--Card Light-->
-            <div class="card">
-                <!--Card content-->
-                <div class="card-block">
-                    <!--Title-->
+                        <!--Card Light-->
+                        <div class="card">
+                            <!--Card content-->
+                            <div class="card-block">
+                                <!--Title-->
 
 
-                    <h6 class="card-title">
-                        <div class="col-md-2">
-                        <img class="img-rounded" src="{{ i.user.profile_image_url_https|cut:"_normal" }} }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
+                                <h6 class="card-title">
+                                    <div class="col-md-2">
+                                    <img class="img-rounded" src="{{ i.user.profile_image_url_https|cut:"_normal" }} }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
+                                    </div>
+
+                                    <div class="col-md-10">
+                                          <h6>{{ i.user.name }}  @{{ i.user.screen_name }}</h6>
+
+                                    </div>
+                                <!--Text-->
+                                </h6>
+                                <p class="card-text">{{ i.text }}</p>
+
+                            </div>
+
                         </div>
-
-                        <div class="col-md-10">
-                              <h6>{{ i.user.name }}  @{{ i.user.screen_name }}</h6>
-
-                        </div>
-                    <!--Text-->
-                    </h6>
-                    <p class="card-text">{{ i.text }}</p>
-
-                </div>
-
-            </div>
-            {% endfor %}
+                    {% endfor %}
                 </div>
                 <div class="tab-pane fade" id="likes">
+                    <br>
+                    <br>
                     <p>Likes which include likes by me(only) and like my tweets (not now)</p>
-			{% for i in likes %}
-            <!--Card Light-->
-            <div class="card">
-                <!--Card content-->
-                <div class="card-block">
-                    <!--Title-->
+                    {% for i in likes %}
+                    <!--Card Light-->
+                    <div class="card">
+                        <!--Card content-->
+                        <div class="card-block">
+                            <!--Title-->
 
 
-                    <h6 class="card-title">
-                        <div class="col-md-2">
+                            <h6 class="card-title">
+                                <div class="col-md-2">
 
 
-                        <img class="img-rounded" src="{{ i.user.profile_image_url_https|cut:"_normal" }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
+                                <img class="img-rounded" src="{{ i.user.profile_image_url_https|cut:"_normal" }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
+                                </div>
+
+                                <div class="col-md-10">
+                                      <h6>{{ i.user.name }}  @{{ i.user.screen_name }}</h6>
+
+                                </div>
+                            <!--Text-->
+                            </h6>
+                            <p class="card-text">{{ i.text }}</p>
+
                         </div>
 
-                        <div class="col-md-10">
-                              <h6>{{ i.user.name }}  @{{ i.user.screen_name }}</h6>
-
-                        </div>
-                    <!--Text-->
-                    </h6>
-                    <p class="card-text">{{ i.text }}</p>
-
-                </div>
-
-            </div>
-            {% endfor %}
+                    </div>
+                    {% endfor %}
                 </div>
                 <div class="tab-pane active" id="tasks">
+                    <br>
+                    <br>
+
                     <p>List of All tasks of {{ app.AppName }} </p>
-				{% for i in tasks %}
-            <!--Card Light-->
-            <div class="card">
-                <!--Card content-->
-                <div class="card-block">
-                    <!--Title-->
+				    {% for i in tasks %}
+                    <!--Card Light-->
+                        <div class="card">
+                            <!--Card content-->
+                            <div class="card-block">
+                                <!--Title-->
 
 
-                    <h6 class="card-title">
+                                <h6 class="card-title">
 
-                        <div class="col-md-10">
-                              <h6>{{ i.TaskName }}</h6>
+                                    <div class="col-md-10">
+                                          <h6>{{ i.TaskName }}</h6>
+
+                                    </div>
+                                <!--Text-->
+                                </h6>
+                                <p class="card-text">By User : {{ i.user }}</p>
+                                <p class="card-text">At : {{ i.Time }}</p>
+
+                            </div>
 
                         </div>
-                    <!--Text-->
-                    </h6>
-                    <p class="card-text">By User : {{ i.user }}</p>
-                    <p class="card-text">At : {{ i.Time }}</p>
-
+                    {% endfor %}
                 </div>
 
+
+
+        </div>
             </div>
-            {% endfor %}
-                </div>
-
-
-
-</div>
-
-
-		</div>
 
 
 
