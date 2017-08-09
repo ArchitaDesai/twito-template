@@ -98,14 +98,16 @@
         <div class="row margintop60">
             <h2 class="fl">{{ app.AppName }}</h2>
             <div class="fr">
+
                 <button type="button" class="btn btn-outline-info" onclick="location.href='/dashboard/{{ app.id }}'"><i class="fa fa-chevron-left" aria-hidden="true"></i> App Dashboard</button>
-                <!--<a methods="POST"><button type="button" class="btn btn-primary">Search Tweets Locationwise</button></a>
--->             <form method="POST">{% csrf_token %}
-                <input type="button" class="btn btn-outline-info" value="Like top 10 tweets">
-            </form>
+
+                <form method="post">{% csrf_token %}
+                    <input type="submit" class="btn btn-outline-info" value="Like top 10 tweets">
+                </form>
+
             </div>
-            <div class="clearfix"></div>
-            <div class="margintop marginbottom40">Resulted Tweets Are</div>
+        <div class="clearfix"></div>
+    <div class="margintop marginbottom40">Resulted Tweets Are</div>
 
 
 
