@@ -101,9 +101,11 @@
 
                 <button type="button" class="btn btn-outline-info" onclick="location.href='/dashboard/{{ app.id }}'"><i class="fa fa-chevron-left" aria-hidden="true"></i> App Dashboard</button>
 
-                <form method="post">{% csrf_token %}
-                    <input type="submit" class="btn btn-outline-info" value="Like top 10 tweets">
-                </form>
+{#                <form method="post">{% csrf_token %}#}
+{#                    <input type="submit" class="btn btn-outline-info" value="Like top 10 tweets">#}
+{#                </form>#}
+
+                <a data-toggle="modal" data-target="#performtask"><button type="button" class="btn btn-primary">Perform Tasks</button></a>
 
             </div>
         <div class="clearfix"></div>
@@ -144,6 +146,9 @@
         </div>
     </div>
 </div>
+
+
+
 <!--Footer-->
 <footer class="page-footer blue center-on-small-only">
 
@@ -180,6 +185,88 @@
         </div>
     </div>
     <!--/.Footer Links-->
+
+    <!--Modal-->
+
+<div class="modal fade" id="performtask" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <!--Body-->
+
+
+            <div class="modal-body flex-center text-lg-center">
+                    <!--Form with header-->
+                    <div class="card">
+                        <div class="card-block">
+
+
+                            <!--Header-->
+                            <div class="text-xs-center">
+                                <h3 class="card-title">Check tasks you want to perform</h3>
+                                <hr class="mt-2 mb-2">
+                            </div>
+
+                            <!--Body-->
+                            <form method="POST">
+                            {% csrf_token %}
+                            {{ form.non_field_errors }}
+
+                                <div class="md-form">
+                                    <i class="fa fa-pencil prefix"></i>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" name="likeTweets">Like Tweets</label>
+                                    </div>
+                                </div>
+
+                                <br>
+                                <br>
+
+                                <div class="md-form">
+                                    <i class="fa fa-pencil prefix"></i>
+                                        <div class="checkbox disabled">
+                                          <label><input type="checkbox" name="followUsers">Follow User</label>
+                                        </div>
+                                </div>
+
+                                <br>
+                                <br>
+
+
+                                <div class="md-form">
+                                    <i class="fa fa-pencil prefix"></i>
+                                        <div class="checkbox">
+                                          <label><input type="checkbox" name="retweetTweets">Retweet Tweets</label>
+                                        </div>
+                                </div>
+
+
+
+                                <br>
+                                <br>
+
+                            <div class="text-xs-center">
+                                <button type="submit" class="btn btn-deep-purple">Perform</button>
+                            </div>
+                           </form>
+
+                        </div>
+                    </div>
+                    <!--/Form with header-->
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+
+
 
     <!--Copyright-->
     <div class="footer-copyright">
