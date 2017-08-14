@@ -167,29 +167,35 @@
                     <p>Tweets which include my_tweets(only), retweets by me, retweets of me..(not now)</p>
 				    {% for i in tweets %}
                         <!--Card Light-->
-                        <div class="card">
-                            <!--Card content-->
-                            <div class="card-block">
-                                <!--Title-->
+{#                    <div class="card">#}
+{#                        <!--Card content-->#}
+{#                        <div class="card-block">#}
+{#                            <!--Title-->#}
+{##}
+{##}
+{#                            <h6 class="card-title">#}
+{#                                <div class="col-md-2">#}
+{##}
+{##}
+{#                                <img class="img-rounded" src="{{ i.user.profile_image_url_https|cut:"_normal" }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">#}
+{#                                </div>#}
+{##}
+{#                                <div class="col-md-10">#}
+{#                                      <h6>{{ i.user.name }}  @{{ i.user.screen_name }}</h6>#}
+{##}
+{#                                </div>#}
+{#                            <!--Text-->#}
+{#                            </h6>#}
+{#                            <p class="card-text">{{ i.text }}</p>#}
+{##}
+{#                        </div>#}
+{##}
+{#                    </div>#}
+         <iframe border=0 frameborder=0 height=250 width=600
+    src={{ "http://twitframe.com/show?url=https://twitter.com/"|add:i.user.screen_name|add:"/status/"|add:i.id_str }}></iframe>
 
-
-                                <h6 class="card-title">
-                                    <div class="col-md-2">
-                                    <img class="img-rounded" src="{{ i.user.profile_image_url_https|cut:"_normal" }} }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
-                                    </div>
-
-                                    <div class="col-md-10">
-                                          <h6>{{ i.user.name }}  @{{ i.user.screen_name }}</h6>
-
-                                    </div>
-                                <!--Text-->
-                                </h6>
-                                <p class="card-text">{{ i.text }}</p>
-
-                            </div>
-
-                        </div>
-                    {% endfor %}
+			
+			{% endfor %}
                 </div>
                 <div class="tab-pane fade" id="likes">
                     <br>
