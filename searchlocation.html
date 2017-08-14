@@ -115,32 +115,42 @@
 
             {% for i in status %}
             <!--Card Light-->
+{##}
+{#                <a href="{{ "https://twitter.com/"|add:i.user.screen_name|add:"/status/"|add:i.id_str }}">#}
+{#            <div class="card">#}
+{#                <!--Card content-->#}
+{#                <div class="card-block">#}
+{#                       <!--Title-->#}
+{##}
+{##}
+{#                    <h6 class="card-title">#}
+{#                        <div class="col-md-2">#}
+{#                        <img class="img-rounded" src="{{ i.user.profile_image_url_https|cut:"_normal" }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">#}
+{#                        </div>#}
+{#                        <a href="{{ "https://twitter.com/"|add:i.user.screen_name }}">#}
+{#                        <div class="col-md-10">#}
+{#                              <h6>{{ i.user.name }}  @{{ i.user.screen_name }}</h6>#}
+{##}
+{#                        </div>#}
+{#                        </a>#}
+{#                    <!--Text-->#}
+{#                    </h6>#}
+{#                    <p class="card-text">{{ i.text }}</p>#}
+{##}
+{#                </div>#}
+{##}
+{#            </div>#}
+{#                </a>#}
 
-                <a href="{{ "https://twitter.com/"|add:i.user.screen_name|add:"/status/"|add:i.id_str }}">
-            <div class="card">
-                <!--Card content-->
-                <div class="card-block">
-                    <!--Title-->
+
+                <iframe border=0 frameborder=0 height=250 width=600
+        src={{ "http://twitframe.com/show?url=https://twitter.com/"|add:i.user.screen_name|add:"/status/"|add:i.id_str }}>
+
+             </iframe>
 
 
-                    <h6 class="card-title">
-                        <div class="col-md-2">
-                        <img class="img-rounded" src="{{ i.user.profile_image_url_https|cut:"_normal" }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
-                        </div>
-                        <a href="{{ "https://twitter.com/"|add:i.user.screen_name }}">
-                        <div class="col-md-10">
-                              <h6>{{ i.user.name }}  @{{ i.user.screen_name }}</h6>
 
-                        </div>
-                        </a>
-                    <!--Text-->
-                    </h6>
-                    <p class="card-text">{{ i.text }}</p>
-
-                </div>
-
-            </div>
-                </a>
+            
             {% endfor %}
 
         </div>
