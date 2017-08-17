@@ -251,6 +251,21 @@
                 </div>
 
                 <div class="tab-pane active" id="tasks">
+
+                    <nav class="navbar navbar-default">
+                      <div class="container-fluid">
+                        <div class="navbar-header">
+                          <a class="navbar-brand" href="#">Task Lists</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                          <li class="active"><a href="#general">General Tasks</a></li>
+                          <li><a href="#like">Like Tasks</a></li>
+                          <li><a href="#follow">Follow Tasks</a></li>
+                            <li><a href="#retweet">ReTweet Tasks</a></li>
+                        </ul>
+                      </div>
+                    </nav>
+
                     <br>
                     <br>
 
@@ -280,7 +295,8 @@
                         </div>
                     {% endfor %}
 
-                    <div class="well" id="like"><h3>All Like Tweet Tasks of {{ app.AppName }} </h3></div>
+                    <div class="well" id="like"><h3>All Like Tweet Tasks of {{ app.AppName }}
+                        <h6 class="align-right"><a href="#tasks"> Go Up</a></h6></h3></div>
                         {% for i in likeTasks %}
                         <!--Card Light-->
                             <div class="card">
@@ -300,7 +316,8 @@
                             </div>
                         {% endfor %}
 
-                    <div class="well" id="follow"><h3>All Follow User Tasks of {{ app.AppName }} </h3></div>
+                    <div class="well" id="follow"><h3>All Follow User Tasks of {{ app.AppName }}
+                        <h6 class="align-right"><a href="#tasks"> Go Up</a></h6></h3></div>
                         {% for i in followTasks %}
                         <!--Card Light-->
                             <div class="card">
@@ -319,7 +336,8 @@
                             </div>
                         {% endfor %}
 
-                    <div class="well" id="retweet"><h3>All Retweet Tweet Tasks of {{ app.AppName }} </h3></div>
+                    <div class="well" id="retweet"><h3>All Retweet Tweet Tasks of {{ app.AppName }}
+                        <h6 class="align-right"><a href="#tasks"> Go Up</a></h6></h3></div>
                         {% for i in reTweetTasks %}
                         <!--Card Light-->
                             <div class="card">
