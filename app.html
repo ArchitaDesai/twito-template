@@ -249,12 +249,14 @@
 
                     {% endfor %}
                 </div>
+
                 <div class="tab-pane active" id="tasks">
                     <br>
                     <br>
 
-                    <p>List of All tasks of {{ app.AppName }} </p>
-				    {% for i in tasks %}
+                    <div class="well" id="general"><h3>List of All General tasks of {{ app.AppName }} </h3></div>
+
+				    {% for i in generalTasks %}
                     <!--Card Light-->
                         <div class="card">
                             <!--Card content-->
@@ -277,18 +279,71 @@
 
                         </div>
                     {% endfor %}
-                </div>
 
+                    <div class="well" id="like"><h3>All Like Tweet Tasks of {{ app.AppName }} </h3></div>
+                        {% for i in likeTasks %}
+                        <!--Card Light-->
+                            <div class="card">
+                                <!--Card content-->
+                                <div class="card-block">
+                                    <!--Title-->
+                                    <h6 class="card-title">
+                                        <div class="col-md-10">
+                                              <h6>{{ i.tweetID }}</h6>
 
+                                        </div>
+                                    <!--Text-->
+                                    </h6>
+                                    <p class="card-text">By User : {{ i.user }}</p>
+                                    <p class="card-text">At : {{ i.Time }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
 
-        </div>
+                    <div class="well" id="follow"><h3>All Follow User Tasks of {{ app.AppName }} </h3></div>
+                        {% for i in followTasks %}
+                        <!--Card Light-->
+                            <div class="card">
+                                <!--Card content-->
+                                <div class="card-block">
+                                    <!--Title-->
+                                    <h6 class="card-title">
+                                        <div class="col-md-10">
+                                              <h6>{{ i.followUserID }}</h6>
+                                        </div>
+                                    <!--Text-->
+                                    </h6>
+                                    <p class="card-text">By User : {{ i.user }}</p>
+                                    <p class="card-text">At : {{ i.Time }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    <div class="well" id="retweet"><h3>All Retweet Tweet Tasks of {{ app.AppName }} </h3></div>
+                        {% for i in reTweetTasks %}
+                        <!--Card Light-->
+                            <div class="card">
+                                <!--Card content-->
+                                <div class="card-block">
+                                    <!--Title-->
+                                    <h6 class="card-title">
+                                        <div class="col-md-10">
+                                              <h6>{{ i.tweetID }}</h6>
+                                        </div>
+                                    <!--Text-->
+                                    </h6>
+                                    <p class="card-text">By User : {{ i.user }}</p>
+                                    <p class="card-text">At : {{ i.Time }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+
             </div>
-
-
 
         </div>
     </div>
 </div>
+    </div>
 <!--Footer-->
 <footer class="page-footer blue center-on-small-only">
 
@@ -387,19 +442,19 @@
                                 <div class="md-form">
                                     <i class="fa fa-pencil prefix"></i>
                                     <label for="id_latitude">Latitude :</label>
-                                    <input type="text" id="id_latitude" name="latitude" class="form-control">
+                                    <input type="text" id="id_latitude" name="latitude" class="form-control" required>
                                 </div>
 
                                 <div class="md-form">
                                     <i class="fa fa-pencil prefix"></i>
                                     <label for="id_longitude">Longitude :</label>
-                                    <input type="text" id="id_longitude" name="longitude" class="form-control">
+                                    <input type="text" id="id_longitude" name="longitude" class="form-control" required>
                                 </div>
 
                                 <div class="md-form">
                                     <i class="fa fa-pencil prefix"></i>
                                     <label for="id_radius">Radius :</label>
-                                    <input type="text" id="id_radius" name="radius" class="form-control">
+                                    <input type="text" id="id_radius" name="radius" class="form-control" required>
                                 </div>
 
                                 <div class="md-form">
@@ -429,7 +484,7 @@
         </div>
         <!--/.Content-->
     </div>
-</div>
+
 
 
 
