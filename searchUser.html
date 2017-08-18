@@ -116,9 +116,8 @@
                         <div class="card">
                             <!--Card content-->
                             <div class="card-block">
+                                <a href="{{ "https://twitter.com/"|add:i.screen_name }}">
                                 <!--Title-->
-
-
                                 <h6 class="card-title">
                                     <div class="col-md-2">
                                     <img class="img-rounded" src="{{ i.profile_image_url_https|cut:"_normal" }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
@@ -131,7 +130,7 @@
                                 <!--Text-->
                                 </h6>
                                 <p class="card-text">{{ i.description }}</p>
-
+                                </a>
                             </div>
 
                             </div>
