@@ -17,6 +17,8 @@
     <!--For Tab Nav Bar-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+    <link href="https://fonts.googleapis.com/css?family=Alegreya|Bad+Script|Berkshire+Swash|Bree+Serif|Cookie|Courgette|Dancing+Script|EB+Garamond|Elsie|Faustina|IM+Fell+French+Canon+SC|Josefin+Sans|Lobster|Lora|Marck+Script|Merienda+One|Pacifico|Rochester|Sacramento|Satisfy|Slabo+27px" rel="stylesheet">
+
 
     <!-- Bootstrap core CSS -->
     <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
@@ -48,15 +50,25 @@
                 <a href="/" class="navbar-brand logo"><img src="{% static "img/logo.png" %}" class="img-responsive" alt=""></a>
                 <!--Links-->
                 <ul class="nav navbar-nav float-lg-right margintop">
+{#                    <li class="nav-item">#}
+{#                        <div style="font-family:'Bree Serif', serif; font-size:25px;">{{ user.username }}</div>#}
+{#                    </li>#}
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link" href="/accounts/logout/" style="font-family:'Bree Serif', serif; font-size:25px;">Logout</a>#}
+{#                    </li>#}
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link" href="{{ "https://twitter.com/"|add:me.screen_name }}" style="font-family:'Bree Serif', serif; font-size:25px;">My Profile</a>#}
+{#                    </li>#}
+                                <ul class="nav navbar-nav float-lg-right margintop">
                     <li class="nav-item">
                         <a class="nav-link">{{ user.username }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">Logout</a>
+                        <a class="nav-link" href="/accounts/logout/">Logout</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link">My Profile</a>
-                    </li>
+                </ul>
+
+
                 </ul>
             </div>
             <!--/.Collapse content-->
@@ -69,38 +81,35 @@
 
     <div class="container">
         <div class="row margintop60">
-            <h2 class="fl">{{ app.AppName }}</h2>
+            <h2 class="fl" style="font-family:'Lora', serif; font-size:40px;">{{ app.AppName }}</h2>
             <div class="fr">
 
-                <!--
-                <button type="button" class="btn btn-primary" onclick="location.href='/dashboard/{{ app.id }}/connect_to_twitter/'"><i class="fa fa-twitter left"></i> Connect a Twitter Account</button>
-            -->
                 <div class="well">
-                    <button type="button" class="btn btn-outline-info" onclick="location.href='/dashboard/'"><i class="fa fa-chevron-left" aria-hidden="true"></i> Dashboard</button>
+                    <button type="button" class="btn btn-outline-info" onclick="location.href='/dashboard/'" style="font-family:'Bree Serif', serif; font-size:15px;"><i class="fa fa-chevron-left" aria-hidden="true"></i> Dashboard</button>
 
-            <a data-toggle="modal" data-target="#searchlocationwise"><button type="button" class="btn btn-primary">
+            <a data-toggle="modal" data-target="#searchlocationwise"><button type="button" class="btn btn-primary" style="font-family:'Bree Serif', serif; font-size:15px;">
                 <i class="glyphicon glyphicon-search"></i>    By Location</button></a>
-            <a data-toggle="modal" data-target="#searchbykeyword"><button type="button" class="btn btn-primary">
+            <a data-toggle="modal" data-target="#searchbykeyword"><button type="button" class="btn btn-primary" style="font-family:'Bree Serif', serif; font-size:15px;">
                 <i class="glyphicon glyphicon-search"></i>    By Keyword</button></a>
-            <a data-toggle="modal" data-target="#searchuser"><button type="button" class="btn btn-primary">
+            <a data-toggle="modal" data-target="#searchuser"><button type="button" class="btn btn-primary" style="font-family:'Bree Serif', serif; font-size:15px;">
                 <i class="glyphicon glyphicon-search"></i>    By UserName</button></a>
 
 
                 </div>
             </div>
             <div class="clearfix"></div>
-            <div class="margintop marginbottom40">Application Info</div>
+            <div class="margintop marginbottom40" style="font-family:'Bree Serif', serif; font-size:25px;">Application Info</div>
 
             <div class="container">
 			<ul class="nav nav-tabs nav-justified">
-				<li class="active"><a href="#tasks" data-toggle="tab">Tasks</a></li>
+				<li class="active"><a href="#tasks" data-toggle="tab" style="font-family:'Pacifico', cursive; font-size:30px;">Tasks</a></li>
 
-                <li><a href="#followers" data-toggle="tab">Followers</a></li>
-				<li><a href="#friends" data-toggle="tab">Following</a></li>
-                <li><a href="#tweets" data-toggle="tab">Tweets</a></li>
+                <li><a href="#followers" data-toggle="tab" style="font-family:'Pacifico', cursive; font-size:30px;">Followers</a></li>
+				<li><a href="#friends" data-toggle="tab" style="font-family:'Pacifico', cursive; font-size:30px;">Following</a></li>
+                <li><a href="#tweets" data-toggle="tab" style="font-family:'Pacifico', cursive; font-size:30px;">Tweets</a></li>
 
 
-                <li><a href="#likes" data-toggle="tab">Likes</a></li>
+                <li><a href="#likes" data-toggle="tab" style="font-family:'Pacifico', cursive; font-size:30px;">Likes</a></li>
 
 
 
@@ -112,15 +121,13 @@
 				<div class="tab-pane fade" id="followers">
                     <br>
                     <br>
-                    <p>Followers of Authenticated User Are</p>
+                    <p style="font-family:'Courgette', cursive; font-size:25px;">Followers of Authenticated User Are</p>
                     {% for i in followers %}
                         <!--Card Light-->
                         <div class="card">
                             <!--Card content-->
                             <div class="card-block">
                                 <!--Title-->
-
-
                                 <h6 class="card-title">
                                     <div class="col-md-2">
                                     <img class="img-rounded" src="{{ i.profile_image_url_https|cut:"_normal" }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
@@ -149,7 +156,7 @@
 				<div class="tab-pane fade" id="friends">
                     <br>
                     <br>
-                    <p>Authenticated User is following these accounts:</p>
+                    <p style="font-family:'Courgette', cursive; font-size:25px;">Authenticated User is following these accounts:</p>
 
                     {% for i in friends %}
                         <!--Card Light-->
@@ -187,35 +194,11 @@
                 <div class="tab-pane fade" id="tweets">
                     <br>
                     <br>
-                    <p>Tweets which include my_tweets(only), retweets by me, retweets of me..(not now)</p>
+                    <p style="font-family:'Courgette', cursive; font-size:25px;">Tweets which include my_tweets(only), retweets by me, retweets of me..(not now)</p>
 				    {% for i in tweets %}
                         <!--Card Light-->
-{#                    <div class="card">#}
-{#                        <!--Card content-->#}
-{#                        <div class="card-block">#}
-{#                            <!--Title-->#}
-{##}
-{##}
-{#                            <h6 class="card-title">#}
-{#                                <div class="col-md-2">#}
-{##}
-{##}
-{#                                <img class="img-rounded" src="{{ i.user.profile_image_url_https|cut:"_normal" }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">#}
-{#                                </div>#}
-{##}
-{#                                <div class="col-md-10">#}
-{#                                      <h6>{{ i.user.name }}  @{{ i.user.screen_name }}</h6>#}
-{##}
-{#                                </div>#}
-{#                            <!--Text-->#}
-{#                            </h6>#}
-{#                            <p class="card-text">{{ i.text }}</p>#}
-{##}
-{#                        </div>#}
-{##}
-{#                    </div>#}
          <iframe frameborder=0 height=250 width=600
-    src={{ "http://twitframe.com/show?url=https://twitter.com/"|add:i.user.screen_name|add:"/status/"|add:i.id_str }}></iframe>
+                src={{ "http://twitframe.com/show?url=https://twitter.com/"|add:i.user.screen_name|add:"/status/"|add:i.id_str }}></iframe>
 
 			
 			{% endfor %}
@@ -223,33 +206,9 @@
                 <div class="tab-pane fade" id="likes">
                     <br>
                     <br>
-                    <p>Likes which include likes by me(only) and like my tweets (not now)</p>
+                    <p style="font-family:'Courgette', cursive; font-size:25px;">Likes which include likes by me(only) and like my tweets (not now)</p>
                     {% for i in likes %}
                     <!--Card Light-->
-{#                    <div class="card">#}
-{#                        <!--Card content-->#}
-{#                        <div class="card-block">#}
-{#                            <!--Title-->#}
-{##}
-{##}
-{#                            <h6 class="card-title">#}
-{#                                <div class="col-md-2">#}
-{##}
-{##}
-{#                                <img class="img-rounded" src="{{ i.user.profile_image_url_https|cut:"_normal" }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">#}
-{#                                </div>#}
-{##}
-{#                                <div class="col-md-10">#}
-{#                                      <h6>{{ i.user.name }}  @{{ i.user.screen_name }}</h6>#}
-{##}
-{#                                </div>#}
-{#                            <!--Text-->#}
-{#                            </h6>#}
-{#                            <p class="card-text">{{ i.text }}</p>#}
-{##}
-{#                        </div>#}
-{##}
-{#                    </div>#}
 
                         <iframe frameborder=0 height=250 width=300
         src={{ "http://twitframe.com/show?url=https://twitter.com/"|add:i.user.screen_name|add:"/status/"|add:i.id_str }}>
@@ -266,14 +225,11 @@
 
                     <nav class="navbar navbar-default">
                       <div class="container-fluid">
-                        <div class="navbar-header">
-                          <a class="navbar-brand" href="#">Task Lists</a>
-                        </div>
                         <ul class="nav navbar-nav">
-                          <li class="active"><a href="#general">General Tasks</a></li>
-                          <li><a href="#like">Like Tasks</a></li>
-                          <li><a href="#follow">Follow Tasks</a></li>
-                            <li><a href="#retweet">ReTweet Tasks</a></li>
+                          <li class="active"><a href="#general" style="font-family:'Bree Serif', serif; font-size:20px;">General Tasks</a></li>
+                          <li><a href="#like" style="font-family:'Bree Serif', serif; font-size:20px;">Like Tasks</a></li>
+                          <li><a href="#follow" style="font-family:'Bree Serif', serif; font-size:20px;">Follow Tasks</a></li>
+                            <li><a href="#retweet" style="font-family:'Bree Serif', serif; font-size:20px;">ReTweet Tasks</a></li>
                         </ul>
                       </div>
                     </nav>
@@ -281,7 +237,7 @@
                     <br>
                     <br>
 
-                    <div class="well" id="general"><h3>List of All General tasks of {{ app.AppName }} </h3></div>
+                    <div class="well" id="general"><h3 style="font-family:'Courgette', cursive;">List of All General tasks of {{ app.AppName }} </h3></div>
 
 				    {% for i in generalTasks %}
                     <!--Card Light-->
@@ -307,7 +263,7 @@
                         </div>
                     {% endfor %}
 
-                    <div class="well" id="like"><h3>All Like Tweet Tasks of {{ app.AppName }}
+                    <div class="well" id="like"><h3 style="font-family:'Courgette', cursive;">All Like Tweet Tasks of {{ app.AppName }}
                         <h6 class="align-right"><a href="#tasks"> Go Up</a></h6></h3></div>
                         {% for i in likeTasks %}
                         <!--Card Light-->
@@ -328,7 +284,7 @@
                             </div>
                         {% endfor %}
 
-                    <div class="well" id="follow"><h3>All Follow User Tasks of {{ app.AppName }}
+                    <div class="well" id="follow"><h3 style="font-family:'Courgette', cursive;">All Follow User Tasks of {{ app.AppName }}
                         <h6 class="align-right"><a href="#tasks"> Go Up</a></h6></h3></div>
                         {% for i in followTasks %}
                         <!--Card Light-->
@@ -348,7 +304,7 @@
                             </div>
                         {% endfor %}
 
-                    <div class="well" id="retweet"><h3>All Retweet Tweet Tasks of {{ app.AppName }}
+                    <div class="well" id="retweet"><h3 style="font-family:'Courgette', cursive;">All Retweet Tweet Tasks of {{ app.AppName }}
                         <h6 class="align-right"><a href="#tasks"> Go Up</a></h6></h3></div>
                         {% for i in reTweetTasks %}
                         <!--Card Light-->

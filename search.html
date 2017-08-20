@@ -17,6 +17,10 @@
     <!-- Bootstrap core CSS -->
     <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
 
+        <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Alegreya|Bad+Script|Berkshire+Swash|Bree+Serif|Cookie|Courgette|Dancing+Script|EB+Garamond|Elsie|Faustina|IM+Fell+French+Canon+SC|Josefin+Sans|Lobster|Lora|Marck+Script|Merienda+One|Pacifico|Rochester|Sacramento|Satisfy|Slabo+27px" rel="stylesheet">
+
+
     <!-- Material Design Bootstrap -->
     <link href="{% static "css/mdb.min.css" %}" rel="stylesheet">
 
@@ -82,7 +86,7 @@
                         <a class="nav-link">{{ user.username }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">Logout</a>
+                        <a class="nav-link" href="/accounts/logout/">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -96,51 +100,25 @@
 
     <div class="container">
         <div class="row margintop60">
-            <h2 class="fl">{{ app.AppName }}</h2>
+            <h2 class="fl" style="font-family:'Lora', serif; font-size:40px;">{{ app.AppName }}</h2>
             <div class="fr">
 
-                <button type="button" class="btn btn-outline-info" onclick="location.href='/dashboard/{{ app.id }}'"><i class="fa fa-chevron-left" aria-hidden="true"></i> App Dashboard</button>
+                <button type="button" class="btn btn-outline-info" onclick="location.href='/dashboard/{{ app.id }}'" style="font-family:'Bree Serif', serif; font-size:17px;"><i class="fa fa-chevron-left" aria-hidden="true"></i> App Dashboard</button>
 
 {#                <form method="post">{% csrf_token %}#}
 {#                    <input type="submit" class="btn btn-outline-info" value="Like top 10 tweets">#}
 {#                </form>#}
 
-                <a data-toggle="modal" data-target="#performtask"><button type="button" class="btn btn-primary">Perform Tasks</button></a>
+                <a data-toggle="modal" data-target="#performtask"><button type="button" class="btn btn-primary" style="font-family:'Bree Serif', serif; font-size:17px;">Perform Tasks</button></a>
 
             </div>
         <div class="clearfix"></div>
-    <div class="margintop marginbottom40">Resulted Tweets Are</div>
+    <div class="margintop marginbottom40" style="font-family:'Courgette', cursive; font-size: 30px;">Resulted Tweets Are</div>
 
 
 
             {% for i in status %}
             <!--Card Light-->
-{##}
-{#                <a href="{{ "https://twitter.com/"|add:i.user.screen_name|add:"/status/"|add:i.id_str }}">#}
-{#            <div class="card">#}
-{#                <!--Card content-->#}
-{#                <div class="card-block">#}
-{#                       <!--Title-->#}
-{##}
-{##}
-{#                    <h6 class="card-title">#}
-{#                        <div class="col-md-2">#}
-{#                        <img class="img-rounded" src="{{ i.user.profile_image_url_https|cut:"_normal" }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">#}
-{#                        </div>#}
-{#                        <a href="{{ "https://twitter.com/"|add:i.user.screen_name }}">#}
-{#                        <div class="col-md-10">#}
-{#                              <h6>{{ i.user.name }}  @{{ i.user.screen_name }}</h6>#}
-{##}
-{#                        </div>#}
-{#                        </a>#}
-{#                    <!--Text-->#}
-{#                    </h6>#}
-{#                    <p class="card-text">{{ i.text }}</p>#}
-{##}
-{#                </div>#}
-{##}
-{#            </div>#}
-{#                </a>#}
 
                 <iframe frameborder=0 height=250 width=300
         src={{ "http://twitframe.com/show?url=https://twitter.com/"|add:i.user.screen_name|add:"/status/"|add:i.id_str }}>

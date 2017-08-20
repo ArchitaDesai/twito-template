@@ -8,14 +8,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-
     <title>Dashboard | Twito</title>
+
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
     <!-- Bootstrap core CSS -->
     <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Alegreya|Bad+Script|Berkshire+Swash|Bree+Serif|Cookie|Courgette|Dancing+Script|EB+Garamond|Elsie|Faustina|IM+Fell+French+Canon+SC|Josefin+Sans|Lobster|Lora|Marck+Script|Merienda+One|Pacifico|Rochester|Sacramento|Satisfy|Slabo+27px" rel="stylesheet">
+
 
     <!-- Material Design Bootstrap -->
     <link href="{% static "css/mdb.min.css" %}" rel="stylesheet">
@@ -63,9 +67,9 @@
 
     <div class="container">
         <div class="row margintop60">
-            <h2 class="fl">Your twitter apps</h2>
+            <h2 class="fl" style="font-family:'Bree Serif', serif; font-size:30px;">Your twitter apps</h2>
             <div class="fr">
-                <a data-toggle="modal" data-target="#addnewapp"><button type="button" class="btn btn-primary">Add a Twitter App</button></a>
+                <a data-toggle="modal" data-target="#addnewapp"><button type="button" class="btn btn-primary" style="font-family:'Bree Serif', serif; font-size:17px;">Add a Twitter App</button></a>
             </div>
             <div class="clearfix"></div>
 
@@ -96,9 +100,9 @@
                 <!--Card content-->
                 <div class="card-block">
                     <!--Title-->
-                    <h4 class="card-title">{{ app.AppName }}
+                    <h4 class="card-title" style="font-family:'Courgette', cursive; font-size:25px;">{{ app.AppName }}
 
-                     <a href="/dashboard/{{ app.id }}" class="text-lg-right link-text"><h5>Manage <i class="fa fa-chevron-right"></i></h5></a>
+                     <a href="/dashboard/{{ app.id }}" class="text-lg-right link-text"><h5 style="font-family:'Bree Serif', serif; font-size:23px;">Manage <i class="fa fa-chevron-right"></i></h5></a>
 
                         <hr>
                     <!--Text-->
