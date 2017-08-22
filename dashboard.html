@@ -100,13 +100,13 @@
                 <!--Card content-->
                 <div class="card-block">
                     <!--Title-->
-                    <h4 class="card-title" style="font-family:'Courgette', cursive; font-size:25px;">{{ app.AppName }}
+                    <h4 class="card-title" style="font-family:'Courgette', cursive; font-size:25px;">{{ app.appName }}
 
                      <a href="/dashboard/{{ app.id }}" class="text-lg-right link-text"><h5 style="font-family:'Bree Serif', serif; font-size:23px;">Manage <i class="fa fa-chevron-right"></i></h5></a>
 
                         <hr>
                     <!--Text-->
-                    <p class="card-text">Created on : {{ app.created_at }}</p>
+                    <p class="card-text">Created on : {{ app.createdAt }}</p>
                     <a href="/dashboard/{{ app.id }}/delete/" class="btn btn-danger"><i class="fa fa-trash-o left"></i>Delete</a>
                 </div>
             </div>
@@ -199,19 +199,19 @@
                             <div class="md-form">
                                 <i class="fa fa-pencil prefix"></i>
                                 <label for="id_AppName">App Name :</label>
-                                <input type="text" id="id_AppName" name="AppName" class="form-control">
+                                <input type="text" id="id_appName" name="appName" class="form-control">
                             </div>
 
                             <div class="md-form">
                                 <i class="fa fa-lock prefix"></i>
                                 <label for="id_ConsumerKey">Consumer Key :</label>
-                                <input type="text" id="id_ConsumerKey" name="ConsumerKey" class="form-control">
+                                <input type="text" id="id_consumerKey" name="consumerKey" class="form-control">
                             </div>
 
                             <div class="md-form">
                                 <i class="fa fa-lock prefix"></i>
                                 <label for="id_ConsumerToken">Consumer Token :</label>
-                                <input type="text" id="id_ConsumerToken" name="ConsumerToken" class="form-control">
+                                <input type="text" id="id_consumerToken" name="consumerToken" class="form-control">
                             </div>
 
                             <div class="text-xs-center">
