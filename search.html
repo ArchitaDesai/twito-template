@@ -115,7 +115,7 @@
         <div class="clearfix"></div>
     <div class="margintop marginbottom40" style="font-family:'Courgette', cursive; font-size: 30px;">Resulted Tweets Are</div>
 
-
+            {% if status %}
 
             {% for i in status %}
             <!--Card Light-->
@@ -124,10 +124,15 @@
         src={{ "http://twitframe.com/show?url=https://twitter.com/"|add:i.user.screen_name|add:"/status/"|add:i.id_str }}>
 
              </iframe>
-
-
             
             {% endfor %}
+        {% else %}
+
+                <p>Sorry! But for entered quries twitter return null reuslts</p>
+
+            {% endif %}
+
+
 
         </div>
     </div>

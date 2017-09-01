@@ -116,6 +116,7 @@
         <div class="clearfix"></div>
     <div class="margintop marginbottom40" style="font-family:'Courgette', cursive; font-size: 30px;">Resulted Tweets Are</div>
 
+        {% if users %}
         {% for i in users %}
                         <!--Card Light-->
                         <div class="card">
@@ -141,7 +142,10 @@
                             </div>
 
                 {% endfor %}
+            {% else %}
+                  <p>Sorry! But for entered quries twitter return null reuslts</p>
 
+        {% endif %}
         </div>
     </div>
 </div>
