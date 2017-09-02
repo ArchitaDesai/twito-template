@@ -58,8 +58,6 @@
 
     </script>
 
-
-
 </head>
 
 <body>
@@ -75,7 +73,6 @@
 
         <div class="container">
 
-
             <!--Collapse content-->
             <div class="collapse navbar-toggleable-xs" id="collapseEx2">
                 <!--Navbar Brand-->
@@ -89,10 +86,8 @@
                         <a class="nav-link" href="/accounts/logout/">Logout</a>
                     </li>
                 </ul>
-
             </div>
             <!--/.Collapse content-->
-
         </div>
 
     </nav>
@@ -114,42 +109,37 @@
 
             </div>
         <div class="clearfix"></div>
-    <div class="margintop marginbottom40" style="font-family:'Courgette', cursive; font-size: 30px;">Resulted Tweets Are</div>
+        <div class="margintop marginbottom40" style="font-family:'Courgette', cursive; font-size: 30px;">Resulted Tweets Are</div>
 
-        {% if users %}
-        {% for i in users %}
-                        <!--Card Light-->
-                        <div class="card">
-                            <!--Card content-->
-                            <div class="card-block">
-                                <a href="{{ "https://twitter.com/"|add:i.screen_name }}">
-                                <!--Title-->
-                                <h6 class="card-title">
-                                    <div class="col-md-2">
+            {% if users %}
+                {% for i in users %}
+                    <!--Card Light-->
+                    <div class="card">
+                        <!--Card content-->
+                        <div class="card-block">
+                            <a href="{{ "https://twitter.com/"|add:i.screen_name }}">
+                            <!--Title-->
+                            <h6 class="card-title">
+                                <div class="col-md-2">
                                     <img class="img-rounded" src="{{ i.profile_image_url_https|cut:"_normal" }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
-                                    </div>
+                                </div>
 
-                                    <div class="col-md-10">
-                                          <h6>{{ i.name }}  @{{ i.screen_name }}</h6>
-
-                                    </div>
-                                <!--Text-->
-                                </h6>
-                                <p class="card-text">{{ i.description }}</p>
-                                </a>
-                            </div>
-
-                            </div>
-
+                                <div class="col-md-10">
+                                    <h6>{{ i.name }}  @{{ i.screen_name }}</h6>
+                                </div>
+                            <!--Text-->
+                            </h6>
+                            <p class="card-text">{{ i.description }}</p>
+                            </a>
+                        </div>
+                    </div>
                 {% endfor %}
             {% else %}
                   <p>Sorry! But for entered quries twitter return null reuslts</p>
-
-        {% endif %}
+            {% endif %}
         </div>
     </div>
 </div>
-
 
 
 <!--Footer-->
@@ -188,70 +178,7 @@
         </div>
     </div>
     <!--/.Footer Links-->
-
-    <!--Modal-->
-
-<div class="modal fade" id="performtask" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <!--Content-->
-        <div class="modal-content">
-            <!--Header-->
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-
-            </div>
-            <!--Body-->
-
-
-            <div class="modal-body flex-center text-lg-center">
-                    <!--Form with header-->
-                    <div class="card">
-                        <div class="card-block">
-
-
-                            <!--Header-->
-                            <div class="text-xs-center">
-                                <div class="card-title"><h3>Check tasks you want to perform</h3></div>
-                                <hr class="mt-2 mb-2">
-                            </div>
-
-                            <!--Body-->
-                            <form method="POST">
-                            {% csrf_token %}
-                            {{ form.non_field_errors }}
-
-
-                                <div class="md-form">
-                                    <i class="fa fa-pencil prefix"></i>
-                                        <div class="checkbox disabled">
-                                          <label><input type="checkbox" name="followUsers">Follow User</label>
-                                        </div>
-                                </div>
-
-                                <br>
-                                <br>
-
-
-
-                            <div class="text-xs-center">
-                                <button type="submit" class="btn btn-deep-purple">Perform</button>
-                            </div>
-                           </form>
-
-                        </div>
-                    </div>
-                    <!--/Form with header-->
-            </div>
-        </div>
-        <!--/.Content-->
-    </div>
-</div>
-
-
-
-    <!--Copyright-->
+        <!--Copyright-->
     <div class="footer-copyright">
         <div class="container-fluid">
             © <script type="text/javascript">document.write(new Date().getFullYear());</script> Copyright: <a href="http://www.twito.com"> Twito </a>
@@ -262,19 +189,72 @@
 
 </footer>
 <!--/.Footer-->
-<!-- SCRIPTS -->
 
-<!-- JQuery -->
-<script type="text/javascript" src="{% static "js/jquery-3.1.1.min.js" %}"></script>
 
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="{% static "js/tether.min.js" %}"></script>
+<!--Modal-->
 
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+<div class="modal fade" id="performtask" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
 
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="{% static "js/mdb.min.js" %}"></script>
-<script type="text/javascript" src="{% static "js/script.js" %}"></script>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+
+        </div>
+            <!--Body-->
+        <div class="modal-body flex-center text-lg-center">
+            <!--Form with header-->
+            <div class="card">
+                <div class="card-block">
+                    <!--Header-->
+                    <div class="text-xs-center">
+                        <div class="card-title"><h3>Check tasks you want to perform</h3></div>
+                        <hr class="mt-2 mb-2">
+                    </div>
+
+                    <!--Body-->
+                    <form method="POST">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+
+                        <div class="md-form">
+                            <i class="fa fa-pencil prefix"></i>
+                            <div class="checkbox disabled">
+                                <label><input type="checkbox" name="followUsers">Follow User</label>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="text-xs-center">
+                            <button type="submit" class="btn btn-deep-purple">Perform</button>
+                        </div>
+                   </form>
+                </div>
+            </div>
+                    <!--/Form with header-->
+        </div>
+    </div>
+        <!--/.Content-->
+</div>
+
+
+
+    <!-- SCRIPTS -->
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="{% static "js/jquery-3.1.1.min.js" %}"></script>
+
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{% static "js/tether.min.js" %}"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{% static "js/mdb.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/script.js" %}"></script>
 </body>
 </html>

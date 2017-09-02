@@ -30,36 +30,7 @@
 
     <script type="javascript">
 
-{#        function SearchPagination(){#}
-{##}
-{#            var TotalPage = {{ totalpage }};#}
-{#            for(i = 1;i <= TotalPage;i++)#}
-{#            {#}
-{#                if(document.getElementById('page'+i))#}
-{#                    document.getElementById('page'+i).style.display='none';#}
-{##}
-{#            }#}
-{#            if(document.getElementById('page'+i))#}
-{#                    document.getElementById('page'+i).style.display='block';#}
-{##}
-{#        }#}
-
-{#        function TweetLink(Statusobject){#}
-{##}
-{#            window.location.href = "https://twitter.com/username/status/"+str(Statusobject.id);#}
-{#        }#}
-
-{#        function liketweets() {#}
-{##}
-{#            console.log("HiiiHelloo");#}
-{#            window.alert("Hiii");#}
-{##}
-{#        }#}
-
     </script>
-
-
-
 </head>
 
 <body>
@@ -74,7 +45,6 @@
         </button>
 
         <div class="container">
-
 
             <!--Collapse content-->
             <div class="collapse navbar-toggleable-xs" id="collapseEx2">
@@ -91,7 +61,6 @@
                 </ul>
             </div>
             <!--/.Collapse content-->
-
         </div>
 
     </nav>
@@ -112,32 +81,26 @@
                 <a data-toggle="modal" data-target="#performtask"><button type="button" class="btn btn-primary" style="font-family:'Bree Serif', serif; font-size:17px;">Perform Tasks</button></a>
 
             </div>
-        <div class="clearfix"></div>
-    <div class="margintop marginbottom40" style="font-family:'Courgette', cursive; font-size: 30px;">Resulted Tweets Are</div>
+            <div class="clearfix"></div>
+            <div class="margintop marginbottom40" style="font-family:'Courgette', cursive; font-size: 30px;">Resulted Tweets Are</div>
 
-            {% if status %}
+                {% if status %}
+                    {% for i in status %}
+                    <!--Card Light-->
 
-            {% for i in status %}
-            <!--Card Light-->
+                        <iframe frameborder=0 height=250 width=300
+                        src={{ "http://twitframe.com/show?url=https://twitter.com/"|add:i.user.screen_name|add:"/status/"|add:i.id_str }}>
 
-                <iframe frameborder=0 height=250 width=300
-        src={{ "http://twitframe.com/show?url=https://twitter.com/"|add:i.user.screen_name|add:"/status/"|add:i.id_str }}>
-
-             </iframe>
+                        </iframe>
             
-            {% endfor %}
-        {% else %}
+                    {% endfor %}
+                {% else %}
+                    <p>Sorry! But for entered quries twitter return null reuslts</p>
 
-                <p>Sorry! But for entered quries twitter return null reuslts</p>
-
-            {% endif %}
-
-
-
+                {% endif %}
         </div>
     </div>
 </div>
-
 
 
 <!--Footer-->
@@ -176,90 +139,7 @@
         </div>
     </div>
     <!--/.Footer Links-->
-
-    <!--Modal-->
-
-<div class="modal fade" id="performtask" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <!--Content-->
-        <div class="modal-content">
-            <!--Header-->
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-
-            </div>
-            <!--Body-->
-
-
-            <div class="modal-body flex-center text-lg-center">
-                    <!--Form with header-->
-                    <div class="card">
-                        <div class="card-block">
-
-
-                            <!--Header-->
-                            <div class="text-xs-center">
-                                <div class="card-title"><h3>Check tasks you want to perform</h3></div>
-                                <hr class="mt-2 mb-2">
-                            </div>
-
-                            <!--Body-->
-                            <form method="POST">
-                            {% csrf_token %}
-                            {{ form.non_field_errors }}
-
-                                <div class="md-form">
-                                    <i class="fa fa-pencil prefix"></i>
-                                    <div class="checkbox">
-                                        <label><input type="checkbox" name="likeTweets">Like Tweets</label>
-                                    </div>
-                                </div>
-
-                                <br>
-                                <br>
-
-                                <div class="md-form">
-                                    <i class="fa fa-pencil prefix"></i>
-                                        <div class="checkbox disabled">
-                                          <label><input type="checkbox" name="followUsers">Follow User</label>
-                                        </div>
-                                </div>
-
-                                <br>
-                                <br>
-
-
-                                <div class="md-form">
-                                    <i class="fa fa-pencil prefix"></i>
-                                        <div class="checkbox">
-                                          <label><input type="checkbox" name="retweetTweets">Retweet Tweets</label>
-                                        </div>
-                                </div>
-
-
-
-                                <br>
-                                <br>
-
-                            <div class="text-xs-center">
-                                <button type="submit" class="btn btn-deep-purple">Perform</button>
-                            </div>
-                           </form>
-
-                        </div>
-                    </div>
-                    <!--/Form with header-->
-            </div>
-        </div>
-        <!--/.Content-->
-    </div>
-
-
-
-
-    <!--Copyright-->
+        <!--Copyright-->
     <div class="footer-copyright">
         <div class="container-fluid">
             © <script type="text/javascript">document.write(new Date().getFullYear());</script> Copyright: <a href="http://www.twito.com"> Twito </a>
@@ -270,19 +150,95 @@
 
 </footer>
 <!--/.Footer-->
-<!-- SCRIPTS -->
 
-<!-- JQuery -->
-<script type="text/javascript" src="{% static "js/jquery-3.1.1.min.js" %}"></script>
 
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="{% static "js/tether.min.js" %}"></script>
+<!--Modal-->
 
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+<div class="modal fade" id="performtask" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
 
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="{% static "js/mdb.min.js" %}"></script>
-<script type="text/javascript" src="{% static "js/script.js" %}"></script>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+
+        </div>
+            <!--Body-->
+        <div class="modal-body flex-center text-lg-center">
+            <!--Form with header-->
+            <div class="card">
+                <div class="card-block">
+                    <!--Header-->
+                    <div class="text-xs-center">
+                        <div class="card-title"><h3>Check tasks you want to perform</h3></div>
+                        <hr class="mt-2 mb-2">
+                    </div>
+                    <!--Body-->
+                    <form method="POST">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+
+                        <div class="md-form">
+                            <i class="fa fa-pencil prefix"></i>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="likeTweets">Like Tweets</label>
+                            </div>
+                        </div>
+
+                        <br>
+                        <br>
+
+                        <div class="md-form">
+                            <i class="fa fa-pencil prefix"></i>
+                                <div class="checkbox disabled">
+                                  <label><input type="checkbox" name="followUsers">Follow User</label>
+                                </div>
+                        </div>
+
+                        <br>
+                        <br>
+
+
+                        <div class="md-form">
+                            <i class="fa fa-pencil prefix"></i>
+                                <div class="checkbox">
+                                  <label><input type="checkbox" name="retweetTweets">Retweet Tweets</label>
+                                </div>
+                        </div>
+
+
+
+                        <br>
+                        <br>
+
+                        <div class="text-xs-center">
+                            <button type="submit" class="btn btn-deep-purple">Perform</button>
+                        </div>
+                   </form>
+                </div>
+            </div>
+                    <!--/Form with header-->
+        </div>
+    </div>
+        <!--/.Content-->
+</div>
+
+
+    <!-- SCRIPTS -->
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="{% static "js/jquery-3.1.1.min.js" %}"></script>
+
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{% static "js/tether.min.js" %}"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{% static "js/mdb.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/script.js" %}"></script>
 </body>
 </html>
