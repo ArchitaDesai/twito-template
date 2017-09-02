@@ -43,23 +43,18 @@
         </button>
 
         <div class="container">
-
             <!--Collapse content-->
             <div class="collapse navbar-toggleable-xs" id="collapseEx2">
                 <!--Navbar Brand-->
                 <a href="/" class="navbar-brand logo"><img src="{% static "img/logo.png" %}" class="img-responsive" alt=""></a>
                 <!--Links-->
                 <ul class="nav navbar-nav float-lg-right margintop">
-                    <ul class="nav navbar-nav float-lg-right margintop">
                     <li class="nav-item">
                         <a class="nav-link">{{ user.username }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/accounts/logout/">Logout</a>
                     </li>
-                </ul>
-
-
                 </ul>
             </div>
             <!--/.Collapse content-->
@@ -74,258 +69,220 @@
         <div class="row margintop60">
             <h2 class="fl" style="font-family:'Lora', serif; font-size:40px;">{{ app.appName }}</h2>
             <div class="fr">
-
                 <div class="well">
                     <button type="button" class="btn btn-outline-info" onclick="location.href='/dashboard/'" style="font-family:'Bree Serif', serif; font-size:15px;"><i class="fa fa-chevron-left" aria-hidden="true"></i> Dashboard</button>
 
-            <a data-toggle="modal" data-target="#searchlocationwise"><button type="button" class="btn btn-primary" style="font-family:'Bree Serif', serif; font-size:15px;">
-                <i class="glyphicon glyphicon-search"></i>    By Location</button></a>
-            <a data-toggle="modal" data-target="#searchbykeyword"><button type="button" class="btn btn-primary" style="font-family:'Bree Serif', serif; font-size:15px;">
-                <i class="glyphicon glyphicon-search"></i>    By Keyword</button></a>
-            <a data-toggle="modal" data-target="#searchuser"><button type="button" class="btn btn-primary" style="font-family:'Bree Serif', serif; font-size:15px;">
-                <i class="glyphicon glyphicon-search"></i>    By UserName</button></a>
-
-
+                    <a data-toggle="modal" data-target="#searchlocationwise"><button type="button" class="btn btn-primary" style="font-family:'Bree Serif', serif; font-size:15px;">
+                        <i class="glyphicon glyphicon-search"></i>    By Location</button></a>
+                    <a data-toggle="modal" data-target="#searchbykeyword"><button type="button" class="btn btn-primary" style="font-family:'Bree Serif', serif; font-size:15px;">
+                        <i class="glyphicon glyphicon-search"></i>    By Keyword</button></a>
+                    <a data-toggle="modal" data-target="#searchuser"><button type="button" class="btn btn-primary" style="font-family:'Bree Serif', serif; font-size:15px;">
+                        <i class="glyphicon glyphicon-search"></i>    By UserName</button></a>
                 </div>
             </div>
-            <div class="clearfix"></div>
-            <div class="margintop marginbottom40" style="font-family:'Bree Serif', serif; font-size:25px;">Application Info</div>
+        </div>
 
-            <div class="container">
-			<ul class="nav nav-tabs nav-justified">
-				<li class="active"><a href="#tasks" data-toggle="tab" style="font-family:'Lora', serif; font-size:27px;">Tasks</a></li>
-
+        <div class="clearfix"></div>
+        <div class="margintop marginbottom40" style="font-family:'Bree Serif', serif; font-size:25px;">Application Info</div>
+        <div class="container">
+            <ul class="nav nav-tabs nav-justified">
+                <li class="active"><a href="#tasks" data-toggle="tab" style="font-family:'Lora', serif; font-size:27px;">Tasks</a></li>
                 <li><a href="#followers" data-toggle="tab" style="font-family:'Lora', serif; font-size:27px;">Followers</a></li>
-				<li><a href="#friends" data-toggle="tab" style="font-family:'Lora', serif; font-size:27px;">Following</a></li>
+                <li><a href="#friends" data-toggle="tab" style="font-family:'Lora', serif; font-size:27px;">Following</a></li>
                 <li><a href="#tweets" data-toggle="tab" style="font-family:'Lora', serif; font-size:27px;">Tweets</a></li>
                 <li><a href="#likes" data-toggle="tab" style="font-family:'Lora', serif; font-size:27px;">Likes</a></li>
-
-
-
             </ul>
+        </div>
 
-<!--Tab Content -->
-<div class="tab-content">
-
-				<div class="tab-pane fade" id="followers">
-                    <br>
-                    <br>
-                    <p style="font-family:'Courgette', cursive; font-size:25px;">Followers of Authenticated User Are</p>
-                    {% for i in followers %}
-                        <!--Card Light-->
-                        <div class="card">
-                            <!--Card content-->
-                            <div class="card-block">
-                                <!--Title-->
-                                <h6 class="card-title">
-                                    <div class="col-md-2">
-                                    <img class="img-rounded" src="{{ i.profile_image_url_https|cut:"_normal" }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
-                                    </div>
-
-                                    <div class="col-md-10">
-                                          <h6>{{ i.name }}  @{{ i.screen_name }}</h6>
-
-                                    </div>
-                                <!--Text-->
-                                </h6>
-                                <p class="card-text">{{ i.description }}</p>
-
-                            </div>
-
-                        </div>
-
-
-{#                        <iframe frameborder=0 height=250 width=300#}
-{#        src={{ "http://twitframe.com/show?url=https://twitter.com/"|add:i.screen_name }}>#}
-{##}
-{#             </iframe>#}
-
-                    {% endfor %}
-                </div>
-				<div class="tab-pane fade" id="friends">
-                    <br>
-                    <br>
-                    <p style="font-family:'Courgette', cursive; font-size:25px;">Authenticated User is following these accounts:</p>
-
-                    {% for i in friends %}
-                        <!--Card Light-->
-                        <div class="card">
-                            <!--Card content-->
-                            <div class="card-block">
-                                <!--Title-->
-
-
-                                <h6 class="card-title">
-                                    <div class="col-md-2">
-                                    <img class="img-rounded" src="{{ i.profile_image_url_https|cut:"_normal" }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
-                                    </div>
-
-                                    <div class="col-md-10">
-                                          <h6>{{ i.name }}  @{{ i.screen_name }}</h6>
-
-                                    </div>
-                                <!--Text-->
-                                </h6>
-                                <p class="card-text">{{ i.description }}</p>
-
-                            </div>
-
-                        </div>
-
-
-{#                        <iframe frameborder=0 height=250 width=300#}
-{#        src={{ "http://twitframe.com/show?url=https://twitter.com/"|add:i.screen_name }}>#}
-{##}
-{#             </iframe>#}
-
-                    {% endfor %}
-                </div>
-                <div class="tab-pane fade" id="tweets">
-                    <br>
-                    <br>
-                    <p style="font-family:'Courgette', cursive; font-size:25px;">Tweets which include my_tweets(only), retweets by me, retweets of me..(not now)</p>
-				    {% for i in tweets %}
-                        <!--Card Light-->
-         <iframe frameborder=0 height=250 width=600
-                src={{ "http://twitframe.com/show?url=https://twitter.com/"|add:i.user.screen_name|add:"/status/"|add:i.id_str }}></iframe>
-
-			
-			{% endfor %}
-                </div>
-                <div class="tab-pane fade" id="likes">
-                    <br>
-                    <br>
-                    <p style="font-family:'Courgette', cursive; font-size:25px;">Likes which include likes by me(only) and like my tweets (not now)</p>
-                    {% for i in likes %}
-                    <!--Card Light-->
-
-                        <iframe frameborder=0 height=250 width=300
-        src={{ "http://twitframe.com/show?url=https://twitter.com/"|add:i.user.screen_name|add:"/status/"|add:i.id_str }}>
-
-             </iframe>
-
-                    {% endfor %}
-                </div>
-
-                <div class="tab-pane active" id="tasks">
+        <!--Tab Content -->
+        <div class="tab-content">
+            <div class="tab-pane fade" id="followers">
 
                 <br>
-
-
-                    <nav class="navbar navbar-default">
-                      <div class="container-fluid">
-                        <ul class="nav navbar-nav">
-                          <li class="active"><a href="#general" style="font-family:'Bree Serif', serif; font-size:20px;">General Tasks</a></li>
-                          <li><a href="#like" style="font-family:'Bree Serif', serif; font-size:20px;">Like Tasks</a></li>
-                          <li><a href="#follow" style="font-family:'Bree Serif', serif; font-size:20px;">Follow Tasks</a></li>
-                            <li><a href="#retweet" style="font-family:'Bree Serif', serif; font-size:20px;">ReTweet Tasks</a></li>
-                        </ul>
-                      </div>
-                    </nav>
-
-                    <br>
-                    <br>
-
-                    <div class="well" id="general"><h3 style="font-family:'Alegreya', serif;">List of All General tasks of {{ app.appName }} </h3></div>
-
-				    {% for i in generalTasks %}
+                <br>
+                <p style="font-family:'Alegreya', serif; font-size:25px;">Followers of Authenticated User Are</p>
+                {% for i in followers %}
                     <!--Card Light-->
-                        <div class="card">
-                            <!--Card content-->
-                            <div class="card-block">
-                                <!--Title-->
-
-
-                                <h6 class="card-title">
-
-                                    <div class="col-md-10">
-                                          <h6>{{ i.taskName }}</h6>
-
-                                    </div>
-                                <!--Text-->
-                                </h6>
-                                <p class="card-text">By User : {{ i.user }}</p>
-                                <p class="card-text">At : {{ i.time }}</p>
-
-                            </div>
-
+                    <div class="card">
+                        <!--Card content-->
+                        <div class="card-block">
+                            <!--Title-->
+                            <h6 class="card-title">
+                                <div class="col-md-2">
+                                    <img class="img-rounded" src="{{ i.profile_image_url_https|cut:"_normal" }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
+                                </div>
+                                <div class="col-md-10">
+                                      <h6>{{ i.name }}  @{{ i.screen_name }}</h6>
+                                </div>
+                            <!--Text-->
+                            </h6>
+                            <p class="card-text">{{ i.description }}</p>
                         </div>
-                    {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="tab-pane fade" id="friends">
+                <br>
+                <br>
+                <p style="font-family:'Alegreya', serif; font-size:25px;">Authenticated User is following these accounts:</p>
 
-                    <div class="well" id="like"><h3 style="font-family:'Alegreya', serif;">All Like Tweet Tasks of {{ app.appName }}
-                        <h6 class="align-right"><a href="#tasks"> Go Up</a></h6></h3></div>
-                        {% for i in likeTasks %}
-                        <!--Card Light-->
-                            <div class="card">
-                                <!--Card content-->
-                                <div class="card-block">
-                                    <!--Title-->
-                                    <h6 class="card-title">
-                                        <div class="col-md-10">
-                                              <h4>Tweet ID : </h4><h6>{{ i.tweetID }}</h6>
-
-                                        </div>
-                                    <!--Text-->
-                                    </h6>
-                                    <p class="card-text">By User : {{ i.user }}</p>
-                                    <p class="card-text">At : {{ i.time }}</p>
+                {% for i in friends %}
+                    <!--Card Light-->
+                    <div class="card">
+                        <!--Card content-->
+                        <div class="card-block">
+                            <!--Title-->
+                            <h6 class="card-title">
+                                <div class="col-md-2">
+                                    <img class="img-rounded" src="{{ i.profile_image_url_https|cut:"_normal" }}" onerror=this.src="https://d3lut3gzcpx87s.cloudfront.net/res/img/UnknownProfile.png" style="width:100px;height:100px;">
                                 </div>
-                            </div>
-                        {% endfor %}
 
-                    <div class="well" id="follow"><h3 style="font-family:'Alegreya', serif;">All Follow User Tasks of {{ app.appName }}
-                        <h6 class="align-right"><a href="#tasks"> Go Up</a></h6></h3></div>
-                        {% for i in followTasks %}
-                        <!--Card Light-->
-                            <div class="card">
-                                <!--Card content-->
-                                <div class="card-block">
-                                    <!--Title-->
-                                    <h6 class="card-title">
-                                        <div class="col-md-10">
-                                              <h4>User ID : </h4><h6>{{ i.followUserID }}</h6>
-                                        </div>
-                                    <!--Text-->
-                                    </h6>
-                                    <p class="card-text">By User : {{ i.user }}</p>
-                                    <p class="card-text">At : {{ i.time }}</p>
+                                <div class="col-md-10">
+                                    <h6>{{ i.name }}  @{{ i.screen_name }}</h6>
                                 </div>
-                            </div>
-                        {% endfor %}
+                            <!--Text-->
+                            </h6>
+                            <p class="card-text">{{ i.description }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="tab-pane fade" id="tweets">
+                <br>
+                <br>
+                <p style="font-family:'Alegreya', serif; font-size:25px;">Tweets which include my_tweets(only), retweets by me, retweets of me..(not now)</p>
+                {% for i in tweets %}
+                            <!--Card Light-->
+                     <iframe frameborder=0 height=250 width=600
+                            src={{ "http://twitframe.com/show?url=https://twitter.com/"|add:i.user.screen_name|add:"/status/"|add:i.id_str }}></iframe>
 
-                    <div class="well" id="retweet"><h3 style="font-family:'Alegreya', serif;">All Retweet Tweet Tasks of {{ app.appName }}
-                        <h6 class="align-right"><a href="#tasks"> Go Up</a></h6></h3></div>
-                        {% for i in reTweetTasks %}
-                        <!--Card Light-->
-                            <div class="card">
-                                <!--Card content-->
-                                <div class="card-block">
-                                    <!--Title-->
-                                    <h6 class="card-title">
-                                        <div class="col-md-10">
-                                              <h4>Tweet ID : </h4><h6>{{ i.tweetID }}</h6>
-                                        </div>
-                                    <!--Text-->
-                                    </h6>
-                                    <p class="card-text">By User : {{ i.user }}</p>
-                                    <p class="card-text">At : {{ i.time }}</p>
-                                </div>
-                            </div>
-                        {% endfor %}
-
+                {% endfor %}
             </div>
 
+            <div class="tab-pane fade" id="likes">
+                <br>
+                <br>
+                <p style="font-family:'Alegreya', serif; font-size:25px;">Likes which include likes by me(only) and like my tweets (not now)</p>
+                {% for i in likes %}
+                <!--Card Light-->
+                     <iframe frameborder=0 height=250 width=300
+                    src={{ "http://twitframe.com/show?url=https://twitter.com/"|add:i.user.screen_name|add:"/status/"|add:i.id_str }}>
+
+                    </iframe>
+                {% endfor %}
+            </div>
+
+            <div class="tab-pane active" id="tasks">
+
+                <br>
+                <nav class="navbar navbar-default">
+                  <div class="container-fluid">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#general" style="font-family:'Bree Serif', serif; font-size:20px;">General Tasks</a></li>
+                        <li><a href="#like" style="font-family:'Bree Serif', serif; font-size:20px;">Like Tasks</a></li>
+                        <li><a href="#follow" style="font-family:'Bree Serif', serif; font-size:20px;">Follow Tasks</a></li>
+                        <li><a href="#retweet" style="font-family:'Bree Serif', serif; font-size:20px;">ReTweet Tasks</a></li>
+                    </ul>
+                  </div>
+                </nav>
+                <br>
+                <br>
+
+                <div class="well" id="general"><h3 style="font-family:'Alegreya', serif;">List of All General tasks of {{ app.appName }} </h3></div>
+
+                {% for i in generalTasks %}
+                <!--Card Light-->
+                    <div class="card">
+                        <!--Card content-->
+                        <div class="card-block">
+                            <!--Title-->
+                            <h6 class="card-title">
+                                <div class="col-md-10">
+                                      <h6>{{ i.taskName }}</h6>
+                                </div>
+                            <!--Text-->
+                            </h6>
+                            <p class="card-text">By User : {{ i.user }}</p>
+                            <p class="card-text">At : {{ i.time }}</p>
+
+                        </div>
+
+                    </div>
+                {% endfor %}
+
+                <div class="well" id="like"><h3 style="font-family:'Alegreya', serif;">All Like Tweet Tasks of {{ app.appName }}
+                    <h6 class="align-right"><a href="#tasks"> Go Up</a></h6></h3></div>
+
+                {% for i in likeTasks %}
+                <!--Card Light-->
+                    <div class="card">
+                        <!--Card content-->
+                        <div class="card-block">
+                            <!--Title-->
+                            <h6 class="card-title">
+                                <div class="col-md-10">
+                                      <h4>Tweet ID : </h4><h6>{{ i.tweetID }}</h6>
+                                </div>
+                            <!--Text-->
+                            </h6>
+                            <p class="card-text">By User : {{ i.user }}</p>
+                            <p class="card-text">At : {{ i.time }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <div class="well" id="follow"><h3 style="font-family:'Alegreya', serif;">All Follow User Tasks of {{ app.appName }}
+                    <h6 class="align-right"><a href="#tasks"> Go Up</a></h6></h3></div>
+
+                {% for i in followTasks %}
+                <!--Card Light-->
+                    <div class="card">
+                        <!--Card content-->
+                        <div class="card-block">
+                            <!--Title-->
+                            <h6 class="card-title">
+                                <div class="col-md-10">
+                                      <h4>User ID : </h4><h6>{{ i.followUserID }}</h6>
+                                </div>
+                            <!--Text-->
+                            </h6>
+                            <p class="card-text">By User : {{ i.user }}</p>
+                            <p class="card-text">At : {{ i.time }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <div class="well" id="retweet"><h3 style="font-family:'Alegreya', serif;">All Retweet Tweet Tasks of {{ app.appName }}
+                    <h6 class="align-right"><a href="#tasks"> Go Up</a></h6></h3></div>
+
+                {% for i in reTweetTasks %}
+                <!--Card Light-->
+                    <div class="card">
+                        <!--Card content-->
+                        <div class="card-block">
+                            <!--Title-->
+                            <h6 class="card-title">
+                                <div class="col-md-10">
+                                      <h4>Tweet ID : </h4><h6>{{ i.tweetID }}</h6>
+                                </div>
+                            <!--Text-->
+                            </h6>
+                            <p class="card-text">By User : {{ i.user }}</p>
+                            <p class="card-text">At : {{ i.time }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
         </div>
     </div>
 </div>
-    </div>
+
 <!--Footer-->
 <footer class="page-footer blue center-on-small-only">
-
     <!--Footer Links-->
     <div class="container">
         <div class="row">
-
 
             <div class="col-sm-4">
                 <dl class="text-justify">
@@ -356,250 +313,214 @@
     </div>
     <!--/.Footer Links-->
 
-
-    <!-- Modal -->
-<div class="modal fade" id="searchlocationwise" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <!--Content-->
-        <div class="modal-content">
-            <!--Header-->
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-
-            </div>
-            <!--Body-->
-
-
-            <div class="modal-body flex-center text-lg-center">
-                    <!--Form with header-->
-                    <div class="card">
-                        <div class="card-block">
-
-
-                            <!--Header-->
-                            <div class="text-xs-center">
-                                <h3 class="card-title">Enter Location Information</h3>
-                                <hr class="mt-2 mb-2">
-                            </div>
-
-                            <!--Body-->
-                            <form method="POST">
-                            {% csrf_token %}
-                            {{ form.non_field_errors }}
-
-                                <div class="md-form">
-                                    <i class="fa fa-pencil prefix"></i>
-                                    <label for="id_keyword">Keyword :</label>
-                                    <input type="text" id="id_keyword" name="keyword" class="form-control">
-                                </div>
-
-                                <div class="md-form">
-                                    <i class="fa fa-pencil prefix"></i>
-                                    <label for="id_lang">Language :</label>
-                                    <br>
-                                    <br>
-                                    <select id="id_lang" name="lang" class="form-control">
-                                        <option value="">-</option>
-                                        <option value="Chinese">Chinese</option>
-                                        <option value="English">English</option>
-                                        <option value="Gujarati">Gujarati</option>
-                                        <option value="Hindi">Hindi</option>
-                                        <option value="Japanese">Japanses</option>
-                                        <option value="Marathi">Marathi</option>
-                                        <option value="Russian">Russain</option>
-                                        <option value="Sanskrit">Sanskrit</option>
-
-                                    </select>
-                                </div>
-
-                                <div class="md-form">
-                                    <i class="fa fa-pencil prefix"></i>
-                                    <label for="id_latitude">Latitude :</label>
-                                    <input type="text" id="id_latitude" name="latitude" class="form-control" required>
-                                </div>
-
-                                <div class="md-form">
-                                    <i class="fa fa-pencil prefix"></i>
-                                    <label for="id_longitude">Longitude :</label>
-                                    <input type="text" id="id_longitude" name="longitude" class="form-control" required>
-                                </div>
-
-                                <div class="md-form">
-                                    <i class="fa fa-pencil prefix"></i>
-                                    <label for="id_radius">Radius :</label>
-                                    <input type="text" id="id_radius" name="radius" class="form-control" required>
-                                </div>
-
-                                <div class="md-form">
-                                    <i class="fa fa-pencil prefix"></i>
-
-                                    <label for="id_radiusUnit">Radius Unit :</label>
-                                    <br>
-                                    <br>
-                                    <select id="id_radiusUnit" name="radiusUnit" class="form-control">
-                                        <option value="km">km</option>
-                                        <option value="mi">mi</option>
-                                    </select>
-
-
-                                </div>
-
-
-                            <div class="text-xs-center">
-{#                                <button type="submit" class="btn btn-deep-purple">Search</button>#}
-{#                            #}
-{#                                <input type="submit" class='btn btn-default btn-primary btn-lg' name="locationsearch" value="Search" />#}
-                                    <button type="submit" class="btn btn-deep-purple" name="locationsearch">Search</button>
-                            </div>
-                           </form>
-
-                        </div>
-                    </div>
-                    <!--/Form with header-->
-            </div>
-        </div>
-        <!--/.Content-->
-    </div>
-
-<div class="modal fade" id="searchbykeyword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <!--Content-->
-        <div class="modal-content">
-            <!--Header-->
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-
-            </div>
-            <!--Body-->
-
-
-            <div class="modal-body flex-center text-lg-center">
-                    <!--Form with header-->
-                    <div class="card">
-                        <div class="card-block">
-                            <!--Header-->
-                            <div class="text-xs-center">
-                                <h3 class="card-title">Enter Keyword </h3>
-                                <hr class="mt-2 mb-2">
-                            </div>
-
-                            <!--Body-->
-                            <form method="POST">
-                            {% csrf_token %}
-                            {{ form.non_field_errors }}
-
-                                <div class="md-form">
-                                    <i class="fa fa-pencil prefix"></i>
-                                    <label for="id_keyword">Keyword :</label>
-                                    <input type="text" id="id_keyword" name="keyword" class="form-control" required>
-                                </div>
-
-                                <div class="md-form">
-                                    <i class="fa fa-pencil prefix"></i>
-                                    <label for="id_lang">Language :</label>
-                                    <br>
-                                    <br>
-                                    <select id="id_lang" name="lang" class="form-control">
-                                        <option value="">-</option>
-                                        <option value="Chinese">Chinese</option>
-                                        <option value="English">English</option>
-                                        <option value="Gujarati">Gujarati</option>
-                                        <option value="Hindi">Hindi</option>
-                                        <option value="Japanese">Japanses</option>
-                                        <option value="Marathi">Marathi</option>
-                                        <option value="Russian">Russain</option>
-                                        <option value="Sanskrit">Sanskrit</option>
-
-                                    </select>
-                                </div>
-
-
-
-                            <div class="text-xs-center">
-{#                                <input type="submit" class='btn btn-default btn-primary btn-lg' name="keywordsearch" value="Search" />#}
-                                <button type="submit" class="btn btn-deep-purple" name="keywordsearch">Search</button>
-                            </div>
-                           </form>
-
-                        </div>
-                    </div>
-                    <!--/Form with header-->
-            </div>
-        </div>
-        <!--/.Content-->
-    </div>
-
-<div class="modal fade" id="searchuser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <!--Content-->
-        <div class="modal-content">
-            <!--Header-->
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-
-            </div>
-            <!--Body-->
-
-
-            <div class="modal-body flex-center text-lg-center">
-                    <!--Form with header-->
-                    <div class="card">
-                        <div class="card-block">
-
-
-                            <!--Header-->
-                            <div class="text-xs-center">
-                                <h3 class="card-title">Enter User Information</h3>
-                                <hr class="mt-2 mb-2">
-                            </div>
-
-                            <!--Body-->
-                            <form method="POST">
-                            {% csrf_token %}
-                            {{ form.non_field_errors }}
-
-                                <div class="md-form">
-                                    <i class="fa fa-pencil prefix"></i>
-                                    <label for="id_keyword">UserName :</label>
-                                    <input type="text" id="id_username" name="username" class="form-control" required>
-                                </div>
-
-
-                            <div class="text-xs-center">
-
-{#                                <input type="submit" class='btn btn-default btn-primary btn-lg' name="usersearch" value="Search" />#}
-
-                                <button type="submit" class="btn btn-deep-purple" name="usersearch">Search</button>
-
-                            </div>
-                           </form>
-
-                        </div>
-                    </div>
-                    <!--/Form with header-->
-            </div>
-        </div>
-        <!--/.Content-->
-    </div>
-
-
     <!--Copyright-->
     <div class="footer-copyright">
         <div class="container-fluid">
             © <script type="text/javascript">document.write(new Date().getFullYear());</script> Copyright: <a href="http://www.twito.com"> Twito </a>
-
         </div>
     </div>
     <!--/.Copyright-->
 
 </footer>
 <!--/.Footer-->
+
+
+<!-- Modal -->
+<div class="modal fade" id="searchlocationwise" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+        <!--Body-->
+        <div class="modal-body flex-center text-lg-center">
+            <!--Form with header-->
+            <div class="card">
+                <div class="card-block">
+                    <!--Header-->
+                    <div class="text-xs-center">
+                        <h4 class="card-title">Enter Location Information</h4>
+                        <hr class="mt-2 mb-2">
+                    </div>
+
+                    <!--Body-->
+                    <form method="POST">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+
+                        <div class="md-form">
+                            <i class="fa fa-pencil prefix"></i>
+                            <label for="id_keyword">Keyword :</label>
+                            <input type="text" id="id_keyword" name="keyword" class="form-control">
+                        </div>
+
+                        <div class="md-form">
+                            <i class="fa fa-pencil prefix"></i>
+                            <label for="id_lang">Language :</label>
+                            <br>
+                            <br>
+                            <select id="id_lang" name="lang" class="form-control">
+                                <option value="">-</option>
+                                <option value="Chinese">Chinese</option>
+                                <option value="English">English</option>
+                                <option value="Gujarati">Gujarati</option>
+                                <option value="Hindi">Hindi</option>
+                                <option value="Japanese">Japanses</option>
+                                <option value="Marathi">Marathi</option>
+                                <option value="Russian">Russain</option>
+                                <option value="Sanskrit">Sanskrit</option>
+
+                            </select>
+                        </div>
+
+                        <div class="md-form">
+                            <i class="fa fa-pencil prefix"></i>
+                            <label for="id_latitude">Latitude :</label>
+                            <input type="text" id="id_latitude" name="latitude" class="form-control" required>
+                        </div>
+
+                        <div class="md-form">
+                            <i class="fa fa-pencil prefix"></i>
+                            <label for="id_longitude">Longitude :</label>
+                            <input type="text" id="id_longitude" name="longitude" class="form-control" required>
+                        </div>
+
+                        <div class="md-form">
+                            <i class="fa fa-pencil prefix"></i>
+                            <label for="id_radius">Radius :</label>
+                            <input type="text" id="id_radius" name="radius" class="form-control" required>
+                        </div>
+
+                        <div class="md-form">
+                            <i class="fa fa-pencil prefix"></i>
+
+                            <label for="id_radiusUnit">Radius Unit :</label>
+                            <br>
+                            <br>
+                            <select id="id_radiusUnit" name="radiusUnit" class="form-control">
+                                <option value="km">km</option>
+                                <option value="mi">mi</option>
+                            </select>
+                        </div>
+
+                        <div class="text-xs-center">
+                            <button type="submit" class="btn btn-deep-purple" name="locationsearch">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="searchbykeyword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+        </div>
+        <!--Body-->
+        <div class="modal-body flex-center text-lg-center">
+            <!--Form with header-->
+            <div class="card">
+                <div class="card-block">
+                    <!--Header-->
+                    <div class="text-xs-center">
+                        <h4 class="card-title">Enter Keyword </h4>
+                        <hr class="mt-2 mb-2">
+                    </div>
+
+                    <!--Body-->
+                    <form method="POST">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+
+                        <div class="md-form">
+                            <i class="fa fa-pencil prefix"></i>
+                            <label for="id_keyword">Keyword :</label>
+                            <input type="text" id="id_keyword" name="keyword" class="form-control" required>
+                        </div>
+
+                        <div class="md-form">
+                            <i class="fa fa-pencil prefix"></i>
+                            <label for="id_lang">Language :</label>
+                            <br>
+                            <br>
+                            <select id="id_lang" name="lang" class="form-control">
+                                <option value="">-</option>
+                                <option value="Chinese">Chinese</option>
+                                <option value="English">English</option>
+                                <option value="Gujarati">Gujarati</option>
+                                <option value="Hindi">Hindi</option>
+                                <option value="Japanese">Japanses</option>
+                                <option value="Marathi">Marathi</option>
+                                <option value="Russian">Russain</option>
+                                <option value="Sanskrit">Sanskrit</option>
+
+                            </select>
+                        </div>
+
+                        <div class="text-xs-center">
+{#                                <input type="submit" class='btn btn-default btn-primary btn-lg' name="keywordsearch" value="Search" />#}
+                            <button type="submit" class="btn btn-deep-purple" name="keywordsearch">Search</button>
+                        </div>
+                   </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="searchuser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+
+        </div>
+        <!--Body-->
+        <div class="modal-body flex-center text-lg-center">
+            <!--Form with header-->
+            <div class="card">
+                <div class="card-block">
+
+                    <!--Header-->
+                    <div class="text-xs-center">
+                        <h4 class="card-title">Enter User Information</h4>
+                        <hr class="mt-2 mb-2">
+                    </div>
+                        <!--Body-->
+                    <form method="POST">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+
+                        <div class="md-form">
+                            <i class="fa fa-pencil prefix"></i>
+                            <label for="id_keyword">UserName :</label>
+                            <input type="text" id="id_username" name="username" class="form-control" required>
+                        </div>
+
+                        <div class="text-xs-center">
+                            <button type="submit" class="btn btn-deep-purple" name="usersearch">Search</button>
+                        </div>
+                   </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!-- SCRIPTS -->
 
 <!-- Bootstrap Nav bar -->
@@ -611,21 +532,19 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
+    <!-- JQuery -->
+    <script type="text/javascript" src="{% static "js/jquery-3.1.1.min.js" %}"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{% static "js/tether.min.js" %}"></script>
 
-<!-- JQuery -->
-<script type="text/javascript" src="{% static "js/jquery-3.1.1.min.js" %}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
 
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="{% static "js/tether.min.js" %}"></script>
-
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
-
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="{% static "js/mdb.min.js" %}"></script>
-<script type="text/javascript" src="{% static "js/script.js" %}"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{% static "js/mdb.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/script.js" %}"></script>
 </body>
 </html>
