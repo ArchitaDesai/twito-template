@@ -84,6 +84,18 @@
 
         <div class="clearfix"></div>
         <div class="margintop marginbottom40" style="font-family:'Bree Serif', serif; font-size:25px;">Application Info</div>
+        {% if messages %}
+            <ul class="messages">
+                {% for msg in messages %}
+                <li>
+                    <div class="alert alert-{{msg.level_tag}}" role="alert">
+                        {{msg.message}}
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
         <div class="container">
             <ul class="nav nav-tabs nav-justified">
                 <li class="active"><a href="#tasks" data-toggle="tab" style="font-family:'Lora', serif; font-size:27px;">Tasks</a></li>
