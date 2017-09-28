@@ -27,37 +27,6 @@
     <!-- Your custom styles (optional) -->
     <link href="{% static "css/style.css" %}" rel="stylesheet">
 
-
-    <script type="javascript">
-
-{#        function SearchPagination(){#}
-{##}
-{#            var TotalPage = {{ totalpage }};#}
-{#            for(i = 1;i <= TotalPage;i++)#}
-{#            {#}
-{#                if(document.getElementById('page'+i))#}
-{#                    document.getElementById('page'+i).style.display='none';#}
-{##}
-{#            }#}
-{#            if(document.getElementById('page'+i))#}
-{#                    document.getElementById('page'+i).style.display='block';#}
-{##}
-{#        }#}
-
-{#        function TweetLink(Statusobject){#}
-{##}
-{#            window.location.href = "https://twitter.com/username/status/"+str(Statusobject.id);#}
-{#        }#}
-
-{#        function liketweets() {#}
-{##}
-{#            console.log("HiiiHelloo");#}
-{#            window.alert("Hiii");#}
-{##}
-{#        }#}
-
-    </script>
-
 </head>
 
 <body>
@@ -101,10 +70,6 @@
 
                 <button type="button" class="btn btn-outline-info" onclick="location.href='/dashboard/{{ app.id }}'" style="font-family:'Bree Serif', serif; font-size:17px;"><i class="fa fa-chevron-left" aria-hidden="true"></i> App Dashboard</button>
 
-{#                <form method="post">{% csrf_token %}#}
-{#                    <input type="submit" class="btn btn-outline-info" value="Like top 10 tweets">#}
-{#                </form>#}
-
                 <a data-toggle="modal" data-target="#performtask"><button type="button" class="btn btn-primary" style="font-family:'Bree Serif', serif; font-size:17px;">Perform Tasks</button></a>
 
             </div>
@@ -135,7 +100,7 @@
                     </div>
                 {% endfor %}
             {% else %}
-                  <p>Sorry! But for entered quries twitter return null reuslts</p>
+                  <p>No match found. Try again with more accurate parameters!</p>
             {% endif %}
         </div>
     </div>
@@ -211,7 +176,7 @@
                 <div class="card-block">
                     <!--Header-->
                     <div class="text-xs-center">
-                        <div class="card-title"><h4>Check tasks you want to perform</h4></div>
+                        <div class="card-title"><h5>Check tasks you want to perform</h5></div>
                         <hr class="mt-2 mb-2">
                     </div>
 

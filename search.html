@@ -74,9 +74,6 @@
 
                 <button type="button" class="btn btn-outline-info" onclick="location.href='/dashboard/{{ app.id }}'" style="font-family:'Bree Serif', serif; font-size:17px;"><i class="fa fa-chevron-left" aria-hidden="true"></i> App Dashboard</button>
 
-{#                <form method="post">{% csrf_token %}#}
-{#                    <input type="submit" class="btn btn-outline-info" value="Like top 10 tweets">#}
-{#                </form>#}
 
                 <a data-toggle="modal" data-target="#performtask"><button type="button" class="btn btn-primary" style="font-family:'Bree Serif', serif; font-size:17px;">Perform Tasks</button></a>
 
@@ -95,7 +92,7 @@
             
                     {% endfor %}
                 {% else %}
-                    <p>Sorry! But for entered quries twitter return null reuslts</p>
+                    <h4>No match found. Try again with more accurate parameters!</h4>
 
                 {% endif %}
         </div>
@@ -172,7 +169,7 @@
                 <div class="card-block">
                     <!--Header-->
                     <div class="text-xs-center">
-                        <div class="card-title"><h4>Check tasks you want to perform</h4></div>
+                        <div class="card-title"><h5>Check tasks you want to perform</h5></div>
                         <hr class="mt-2 mb-2">
                     </div>
                     <!--Body-->
@@ -189,7 +186,6 @@
 
                         <br>
                         <br>
-
                         <div class="md-form">
                             <i class="fa fa-pencil prefix"></i>
                                 <div class="checkbox disabled">
@@ -199,16 +195,12 @@
 
                         <br>
                         <br>
-
-
                         <div class="md-form">
                             <i class="fa fa-pencil prefix"></i>
                                 <div class="checkbox">
                                   <label><input type="checkbox" name="retweetTweets">Retweet Tweets</label>
                                 </div>
                         </div>
-
-
 
                         <br>
                         <br>
